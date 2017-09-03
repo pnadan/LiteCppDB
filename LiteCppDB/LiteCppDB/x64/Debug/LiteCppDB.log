@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  LiteCppDB.cpp
+  dllmain.cpp
+  Generating Code...
+     Creating library C:\PN Andersen\DEV\Repos\LiteCppDB\LiteCppDB\x64\Debug\LiteCppDB.lib and object C:\PN Andersen\DEV\Repos\LiteCppDB\LiteCppDB\x64\Debug\LiteCppDB.exp
+  LiteCppDB.vcxproj -> C:\PN Andersen\DEV\Repos\LiteCppDB\LiteCppDB\x64\Debug\LiteCppDB.dll
+  LiteCppDB.vcxproj -> C:\PN Andersen\DEV\Repos\LiteCppDB\LiteCppDB\x64\Debug\LiteCppDB.pdb (Partial PDB)
