@@ -147,17 +147,104 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseCollection.h" />
+    <ClInclude Include="BaseStorage.h" />
+    <ClInclude Include="Bulk.h" />
+    <ClInclude Include="Cls.h" />
+    <ClInclude Include="Comment.h" />
+    <ClInclude Include="ConsoleException.h" />
+    <ClInclude Include="ConsoleProgram.h" />
+    <ClInclude Include="Count.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="Delete.h" />
+    <ClInclude Include="DeleteStorage.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="DownloadStorage.h" />
+    <ClInclude Include="Drop.h" />
+    <ClInclude Include="DropIndex.h" />
+    <ClInclude Include="Ed.h" />
+    <ClInclude Include="EnsureIndex.h" />
+    <ClInclude Include="Env.h" />
+    <ClInclude Include="Find.h" />
+    <ClInclude Include="FindStorage.h" />
+    <ClInclude Include="Help.h" />
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="Indexes.h" />
+    <ClInclude Include="InputCommand.h" />
+    <ClInclude Include="Insert.h" />
+    <ClInclude Include="Max.h" />
+    <ClInclude Include="Min.h" />
+    <ClInclude Include="Open.h" />
+    <ClInclude Include="OptionSet.h" />
+    <ClInclude Include="Pretty.h" />
+    <ClInclude Include="Quit.h" />
+    <ClInclude Include="Rename.h" />
+    <ClInclude Include="Run.h" />
+    <ClInclude Include="ShowCollections.h" />
+    <ClInclude Include="Shrink.h" />
+    <ClInclude Include="Spool.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringExtensions.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Update.h" />
+    <ClInclude Include="UpdateStorage.h" />
+    <ClInclude Include="Upgrade.h" />
+    <ClInclude Include="UploadStorage.h" />
+    <ClInclude Include="UserVersion.h" />
+    <ClInclude Include="Version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseCollection.cpp" />
+    <ClCompile Include="BaseStorage.cpp" />
+    <ClCompile Include="Bulk.cpp" />
+    <ClCompile Include="Cls.cpp" />
+    <ClCompile Include="Comment.cpp" />
+    <ClCompile Include="ConsoleException.cpp" />
+    <ClCompile Include="ConsoleProgram.cpp" />
+    <ClCompile Include="Count.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="DeleteStorage.cpp" />
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="DownloadStorage.cpp" />
+    <ClCompile Include="Drop.cpp" />
+    <ClCompile Include="DropIndex.cpp" />
+    <ClCompile Include="Ed.cpp" />
+    <ClCompile Include="EnsureIndex.cpp" />
+    <ClCompile Include="Env.cpp" />
+    <ClCompile Include="Find.cpp" />
+    <ClCompile Include="FindStorage.cpp" />
+    <ClCompile Include="Help.cpp" />
+    <ClCompile Include="Indexes.cpp" />
+    <ClCompile Include="InputCommand.cpp" />
+    <ClCompile Include="Insert.cpp" />
     <ClCompile Include="LiteCppDBConsole.cpp" />
+    <ClCompile Include="Max.cpp" />
+    <ClCompile Include="Min.cpp" />
+    <ClCompile Include="Open.cpp" />
+    <ClCompile Include="OptionSet.cpp" />
+    <ClCompile Include="Pretty.cpp" />
+    <ClCompile Include="Quit.cpp" />
+    <ClCompile Include="Rename.cpp" />
+    <ClCompile Include="Run.cpp" />
+    <ClCompile Include="ShowCollections.cpp" />
+    <ClCompile Include="Shrink.cpp" />
+    <ClCompile Include="Spool.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="StringExtensions.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Update.cpp" />
+    <ClCompile Include="UpdateStorage.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
+    <ClCompile Include="UploadStorage.cpp" />
+    <ClCompile Include="UserVersion.cpp" />
+    <ClCompile Include="Version.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LiteCppDB\LiteCppDB.vcxproj">

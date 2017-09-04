@@ -60,6 +60,138 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cls.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Comment.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Ed.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Help.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Open.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Pretty.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Quit.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Run.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowCollections.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Shrink.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Spool.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="UserVersion.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Version.h">
+      <Filter>Header Files\Commands\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleException.h">
+      <Filter>Header Files\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleProgram.h">
+      <Filter>Header Files\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="Env.h">
+      <Filter>Header Files\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="InputCommand.h">
+      <Filter>Header Files\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCollection.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Bulk.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Count.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Delete.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Drop.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="DropIndex.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="EnsureIndex.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Find.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Indexes.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Insert.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Max.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Min.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Rename.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Update.h">
+      <Filter>Header Files\Commands\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="DownloadStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="FindStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="UploadStorage.h">
+      <Filter>Header Files\Commands\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSet.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StringExtensions.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -67,6 +199,135 @@
     </ClCompile>
     <ClCompile Include="LiteCppDBConsole.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cls.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Comment.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Ed.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Help.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Open.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Pretty.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Quit.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Run.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowCollections.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Shrink.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Spool.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="UserVersion.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Version.cpp">
+      <Filter>Source Files\Commands\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleException.cpp">
+      <Filter>Source Files\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleProgram.cpp">
+      <Filter>Source Files\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="Env.cpp">
+      <Filter>Source Files\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="InputCommand.cpp">
+      <Filter>Source Files\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCollection.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Bulk.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Count.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Delete.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Drop.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="DropIndex.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="EnsureIndex.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Find.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Indexes.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Insert.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Max.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Min.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Rename.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Update.cpp">
+      <Filter>Source Files\Commands\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="DownloadStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="FindStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="UploadStorage.cpp">
+      <Filter>Source Files\Commands\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionSet.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StringExtensions.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

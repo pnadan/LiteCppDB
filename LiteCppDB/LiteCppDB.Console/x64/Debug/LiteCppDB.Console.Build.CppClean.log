@@ -1,16 +1,59 @@
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppdb.console.pch
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vc141.pdb
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vc141.idb
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\stdafx.obj
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppdbconsole.obj
-c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.ilk
-c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.exe
-c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.pdb
-f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vc141.idb
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppdb.console.pch
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vc141.pdb
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vc141.idb
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\stdafx.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppdbconsole.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\max.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\min.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\open.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\optionset.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\pretty.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\quit.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\rename.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\run.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\showcollections.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\shrink.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\spool.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\stringextensions.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\timer.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\update.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\updatestorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\upgrade.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\uploadstorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\userversion.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\version.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\comment.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\consoleexception.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\consoleprogram.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\count.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\debug.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\delete.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\deletestorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\display.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\downloadstorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\drop.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\dropindex.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\ed.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\ensureindex.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\env.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\find.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\findstorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\help.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\indexes.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\inputcommand.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\insert.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\basecollection.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\basestorage.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\bulk.obj
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\cls.obj
+f:\github\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.ilk
+f:\github\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.exe
+f:\github\repos\litecppdb\litecppdb\x64\debug\litecppdb.console.pdb
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\vcpkg.applocal.log
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\cl.command.1.tlog
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\cl.read.1.tlog
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\cl.write.1.tlog
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\link.command.1.tlog
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\link.read.1.tlog
 f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\link.write.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.console\x64\debug\litecppd.871a3da6.tlog\litecppdb.console.write.1u.tlog

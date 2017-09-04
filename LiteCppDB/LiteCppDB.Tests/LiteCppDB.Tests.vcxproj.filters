@@ -72,6 +72,201 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AttributeMapperTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="NullRefTests.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DecimalTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="ImplicitTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIdConcurrencyTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="LockerTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadTest.h">
+      <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIdTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIndexDatabaseTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="BigDatabaseTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="TempFile.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="BigFileTest.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalFileTest.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="MetadataTest.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageStreamTest.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoTest.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomTypeTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="DictionaryTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="DictListTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="FluentMapperTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceBaseTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MapperExceptionTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MapperNonPublicTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MapperTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxValueTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="PolymorphicTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectionGetterSetterTest.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIndexEngineTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BulkInsertTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DropCollectionTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EncryptedTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexOrderTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MapperInterfaceTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryStreamTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiKeyTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectIdTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadOnlyTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ShrinkTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UserVersionTest.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionStringTestcpp.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="DbRefIndexTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteByNameTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="DerivedTypesTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="FindAllTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="IncludeTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexSortAndFilterTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="LinqTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="LockTimeoutTests.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiKeyMapperTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="NonIdPocoTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="PredicateBuilderTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="ShrinkDatabaseTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="StructTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="ULongListTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="UniqueIndexMapperTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeScriptTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +277,201 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttributeMapperTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="NullRefTests.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DecimalTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="ImplicitTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIdConcurrencyTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="LockerTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="LoopTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadTest.cpp">
+      <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIdTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIndexDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="BigDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="TempFile.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="BigFileTest.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalFileTest.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="MetadataTest.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageStreamTest.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoTest.cpp">
+      <Filter>Source Files\Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomTypeTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="DictionaryTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="DictListTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="FluentMapperTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceBaseTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperExceptionTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperNonPublicTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MaxValueTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="PolymorphicTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectionGetterSetterTest.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIndexEngineTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BulkInsertTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="DropCollectionTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EncryptedTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexOrderTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperInterfaceTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryStreamTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiKeyTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectIdTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadOnlyTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ShrinkTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="UserVersionTest.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionStringTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="DbRefIndexTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteByNameTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="DerivedTypesTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="FindAllTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="IncludeTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexSortAndFilterTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="LinqTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="LockTimeoutTests.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiKeyMapperTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="NonIdPocoTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="PredicateBuilderTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="ShrinkDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="StructTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="ULongListTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="UniqueIndexMapperTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeScriptTest.cpp">
+      <Filter>Source Files\Database</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

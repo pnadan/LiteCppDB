@@ -153,6 +153,360 @@
     <ClInclude Include="LiteCppDB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LiteDatabase.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonReader.h">
+      <Filter>Header Files\Document\Bson</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonSerializer.h">
+      <Filter>Header Files\Document\Bson</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonWriter.h">
+      <Filter>Header Files\Document\Bson</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonReader.h">
+      <Filter>Header Files\Document\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonSerializer.h">
+      <Filter>Header Files\Document\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonTokenizer.h">
+      <Filter>Header Files\Document\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonWriter.h">
+      <Filter>Header Files\Document\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonArray.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonDocument.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonType.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonValue.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectId.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteEngine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectionPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="DataPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtendPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexPage.h">
+      <Filter>Header Files\Engine\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectionIndex.h">
+      <Filter>Header Files\Engine\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBlock.h">
+      <Filter>Header Files\Engine\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexNode.h">
+      <Filter>Header Files\Engine\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="PageAddress.h">
+      <Filter>Header Files\Engine\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonMapper.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MemberMapper.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflection.h">
+      <Filter>Header Files\Mapper\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="StringExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteReader.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteWriter.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionString.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StringScanner.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Aggregate.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Delete.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Find.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Index.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Insert.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteCollection.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Update.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Upsert.h">
+      <Filter>Header Files\Database\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="FileDiskService.h">
+      <Filter>Header Files\Engine\Disks</Filter>
+    </ClInclude>
+    <ClInclude Include="IDiskService.h">
+      <Filter>Header Files\Engine\Disks</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamDiskService.h">
+      <Filter>Header Files\Engine\Disks</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectionEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineAggregateEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="FindEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ShrinkEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UpsertEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="UserVersionEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Query.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryAll.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexInfo.h">
+      <Filter>Header Files\Engine\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryAnd.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryBetween.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryContains.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryEmpty.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryEquals.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryGreater.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryIn.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryLess.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryNot.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryNotEquals.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryOr.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryStartsWith.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryWhere.h">
+      <Filter>Header Files\Engine\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="CacheService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectionService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="DataService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="LockService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="PageService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionService.h">
+      <Filter>Header Files\Engine\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonFieldAttribute.h">
+      <Filter>Header Files\Mapper\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonIdAttribute.h">
+      <Filter>Header Files\Mapper\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonIgnoreAttribute.h">
+      <Filter>Header Files\Mapper\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonIndexAttribute.h">
+      <Filter>Header Files\Mapper\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonRefAttribute.h">
+      <Filter>Header Files\Mapper\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryVisitor.h">
+      <Filter>Header Files\Mapper\Linq</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflection.Expression.h">
+      <Filter>Header Files\Mapper\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoId.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityMapper.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityBuilder.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonMapper.Serialize.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonMapper.Deserialize.h">
+      <Filter>Header Files\Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteQueryable.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteRepository.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteFileInfo.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteFileStream.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteFileStream.Read.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteFileStream.Write.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteStorage.h">
+      <Filter>Header Files\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="IDbReader.h">
+      <Filter>Header Files\Upgrade</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade.h">
+      <Filter>Header Files\Upgrade</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteArrayExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="DictionaryExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="IOExceptionExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="LinqExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeExtensions.h">
+      <Filter>Header Files\Utils\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="AesEncryption.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelper.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOptions.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LazyLoad.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteException.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteTransaction.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LockControl.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="LockState.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MimeTypeConverter.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageUnitHelper.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -163,6 +517,360 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonReader.cpp">
+      <Filter>Source Files\Document\Bson</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonSerializer.cpp">
+      <Filter>Source Files\Document\Bson</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonWriter.cpp">
+      <Filter>Source Files\Document\Bson</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonReader.cpp">
+      <Filter>Source Files\Document\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonSerializer.cpp">
+      <Filter>Source Files\Document\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonTokenizer.cpp">
+      <Filter>Source Files\Document\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonWriter.cpp">
+      <Filter>Source Files\Document\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonArray.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonDocument.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonType.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonValue.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectId.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BasePage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectionPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="DataPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtendPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="HeaderPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexPage.cpp">
+      <Filter>Source Files\Engine\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectionIndex.cpp">
+      <Filter>Source Files\Engine\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="DataBlock.cpp">
+      <Filter>Source Files\Engine\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexNode.cpp">
+      <Filter>Source Files\Engine\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="PageAddress.cpp">
+      <Filter>Source Files\Engine\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonMapper.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MemberMapper.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Reflection.cpp">
+      <Filter>Source Files\Mapper\Reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="StringExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteReader.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteWriter.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionString.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StringScanner.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Aggregate.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Delete.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Find.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Include.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Index.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Insert.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteCollection.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Update.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Upsert.cpp">
+      <Filter>Source Files\Database\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="FileDiskService.cpp">
+      <Filter>Source Files\Engine\Disks</Filter>
+    </ClCompile>
+    <ClCompile Include="IDiskService.cpp">
+      <Filter>Source Files\Engine\Disks</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamDiskService.cpp">
+      <Filter>Source Files\Engine\Disks</Filter>
+    </ClCompile>
+    <ClCompile Include="AggregateEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectionEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="FindEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ShrinkEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="TransactionEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="UpsertEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="UserVersionEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Query.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryAll.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexInfo.cpp">
+      <Filter>Source Files\Engine\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryAnd.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryBetween.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryContains.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryEmpty.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryEquals.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryGreater.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryIn.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryLess.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryNot.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryNotEquals.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryOr.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryStartsWith.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryWhere.cpp">
+      <Filter>Source Files\Engine\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="CacheService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectionService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="DataService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="LockService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="PageService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="TransactionService.cpp">
+      <Filter>Source Files\Engine\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonFieldAttribute.cpp">
+      <Filter>Source Files\Mapper\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonIdAttribute.cpp">
+      <Filter>Source Files\Mapper\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonIgnoreAttribute.cpp">
+      <Filter>Source Files\Mapper\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonIndexAttribute.cpp">
+      <Filter>Source Files\Mapper\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonRefAttribute.cpp">
+      <Filter>Source Files\Mapper\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryVisitor.cpp">
+      <Filter>Source Files\Mapper\Linq</Filter>
+    </ClCompile>
+    <ClCompile Include="Reflection.Expression.cpp">
+      <Filter>Source Files\Mapper\Reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoId.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityMapper.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBuilder.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonMapper.Serialize.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonMapper.Deserialize.cpp">
+      <Filter>Source Files\Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteQueryable.cpp">
+      <Filter>Source Files\Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteRepository.cpp">
+      <Filter>Source Files\Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteFileInfo.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteFileStream.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteFileStream.Read.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteFileStream.Write.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteStorage.cpp">
+      <Filter>Source Files\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="IDbReader.cpp">
+      <Filter>Source Files\Upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrade.cpp">
+      <Filter>Source Files\Upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteArrayExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="DictionaryExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="IOExceptionExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="LinqExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeExtensions.cpp">
+      <Filter>Source Files\Utils\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="AesEncryption.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelper.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOptions.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LazyLoad.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteException.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteTransaction.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LockControl.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="LockState.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MimeTypeConverter.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageUnitHelper.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
