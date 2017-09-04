@@ -13,6 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Concurrency">
+      <UniqueIdentifier>{eaa0938d-d4ac-4fa2-9f5c-661041982f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Concurrency">
+      <UniqueIdentifier>{96d85513-bde0-4293-9b76-bcece7874288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Database">
+      <UniqueIdentifier>{0ad1d021-f4d8-454c-9ecc-cb3c2f29f6df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{22e07ff1-bc38-4499-91c7-2a19874a4c19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Document">
+      <UniqueIdentifier>{44f81435-ce6f-413c-9c1c-30cb76d9767e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document">
+      <UniqueIdentifier>{cbdf7304-f188-49f4-83ce-653d4a98b4bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{27292497-78db-4583-9f78-4ee2e5c17006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{d54d205a-4c4e-4839-a6a2-283784a63219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mapper">
+      <UniqueIdentifier>{84d5fab1-b3b2-4cfb-a048-d77d89dba682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mapper">
+      <UniqueIdentifier>{6e47127a-fe54-4128-9aec-2b569f90eec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Repository">
+      <UniqueIdentifier>{d426e52e-016d-45a6-96f0-c4100289d5b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Repository">
+      <UniqueIdentifier>{9c833fae-bb65-4075-ac68-2c547689bf44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Storage">
+      <UniqueIdentifier>{858e7933-2308-48d5-8000-5ac895825c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Storage">
+      <UniqueIdentifier>{e9bc0cfb-e59d-4a62-a032-01ac992fd442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{e52b7ef3-3569-4a35-b94c-084239387e2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{dabad9e4-f277-48f5-be85-94812d4f9bac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

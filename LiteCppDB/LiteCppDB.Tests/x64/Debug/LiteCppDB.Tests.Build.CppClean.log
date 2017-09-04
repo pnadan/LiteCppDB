@@ -4,9 +4,14 @@ c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\vc141.idb
 c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\stdafx.obj
 c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\dllmain.obj
 c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdbtests.obj
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.command.1.tlog
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.read.1.tlog
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.write.1.tlog
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.command.1.tlog
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.read.1.tlog
-c:\pn andersen\dev\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.write.1.tlog
+c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.tests.ilk
+c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.tests.dll
+c:\pn andersen\dev\repos\litecppdb\litecppdb\x64\debug\litecppdb.tests.pdb
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\vc141.idb
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\vc141.pdb
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.command.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.read.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\cl.write.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.command.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.read.1.tlog
+f:\github\repos\litecppdb\litecppdb\litecppdb.tests\x64\debug\litecppdb.tests.tlog\link.write.1.tlog

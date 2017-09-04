@@ -13,6 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{4f83e87e-8ba6-4b0f-8db6-b66a1e9b74f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{cdd890c9-2ed5-45de-816e-7366d8e9aabe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shell">
+      <UniqueIdentifier>{a85ab643-cfaa-4a1b-8d6a-e357dd9eaf7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shell">
+      <UniqueIdentifier>{cb908199-0b92-4131-b64a-6ae5a9863527}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{46efd94f-fdf6-47f3-882d-40ee4d8b7851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{0288be87-6d09-4146-ac69-b67b1e655645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Collections">
+      <UniqueIdentifier>{6afe2108-deb6-43a5-aa38-8e27374d0dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commands\Collections">
+      <UniqueIdentifier>{fe33c8ac-df35-4056-8ba3-f030820c4c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commands\Console">
+      <UniqueIdentifier>{54d8f3ed-fbf5-4c0d-9111-d4f616901a68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Console">
+      <UniqueIdentifier>{5ea00fb6-86ab-4fcd-a0f3-b354d3189637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commands\Storage">
+      <UniqueIdentifier>{923a1054-a787-4c07-aa0d-9bb7a8ed0cfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\Storage">
+      <UniqueIdentifier>{1611ec27-7ad2-49da-94b4-d3dc5e563599}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
