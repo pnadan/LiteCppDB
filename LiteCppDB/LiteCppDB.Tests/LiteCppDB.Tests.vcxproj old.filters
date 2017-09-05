@@ -14,53 +14,56 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\Concurrency">
-      <UniqueIdentifier>{67353f9c-a2f5-4dfb-87b4-a9f41aab1344}</UniqueIdentifier>
+      <UniqueIdentifier>{eaa0938d-d4ac-4fa2-9f5c-661041982f83}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Concurrency">
-      <UniqueIdentifier>{5a9258e9-0948-48be-813a-9b3d9483fe64}</UniqueIdentifier>
+      <UniqueIdentifier>{96d85513-bde0-4293-9b76-bcece7874288}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Database">
-      <UniqueIdentifier>{492c74c6-bbbe-4a1a-941e-47f349462353}</UniqueIdentifier>
+      <UniqueIdentifier>{0ad1d021-f4d8-454c-9ecc-cb3c2f29f6df}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Database">
-      <UniqueIdentifier>{304fcfcd-951a-436e-91ca-55109e07afc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Document">
-      <UniqueIdentifier>{038db9f7-550a-4bde-8580-a29c69f342a1}</UniqueIdentifier>
+      <UniqueIdentifier>{22e07ff1-bc38-4499-91c7-2a19874a4c19}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Document">
-      <UniqueIdentifier>{1f0af116-fe48-45af-a0ad-54cec7146d3a}</UniqueIdentifier>
+      <UniqueIdentifier>{44f81435-ce6f-413c-9c1c-30cb76d9767e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Document">
+      <UniqueIdentifier>{cbdf7304-f188-49f4-83ce-653d4a98b4bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Engine">
-      <UniqueIdentifier>{42dd5bec-37ff-4edb-b88e-8ed2a78fdd20}</UniqueIdentifier>
+      <UniqueIdentifier>{27292497-78db-4583-9f78-4ee2e5c17006}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{4e73b730-ffbb-4a32-8893-a6367c6d3468}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Mapper">
-      <UniqueIdentifier>{5e0ae515-2fff-4635-8dbb-4cec429f35b1}</UniqueIdentifier>
+      <UniqueIdentifier>{d54d205a-4c4e-4839-a6a2-283784a63219}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Mapper">
-      <UniqueIdentifier>{c0ae4c26-8757-4c1e-bbdd-3d30e522f4b6}</UniqueIdentifier>
+      <UniqueIdentifier>{84d5fab1-b3b2-4cfb-a048-d77d89dba682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mapper">
+      <UniqueIdentifier>{6e47127a-fe54-4128-9aec-2b569f90eec8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Repository">
-      <UniqueIdentifier>{b61466bd-112b-4c50-bae0-13378d21827b}</UniqueIdentifier>
+      <UniqueIdentifier>{d426e52e-016d-45a6-96f0-c4100289d5b4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Repository">
-      <UniqueIdentifier>{8525ec65-c227-4c7c-baf7-560bc9bf1d6e}</UniqueIdentifier>
+      <UniqueIdentifier>{9c833fae-bb65-4075-ac68-2c547689bf44}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Storage">
-      <UniqueIdentifier>{5a0b33f8-10f2-4368-95e6-3c729847f34d}</UniqueIdentifier>
+      <UniqueIdentifier>{858e7933-2308-48d5-8000-5ac895825c9b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Storage">
-      <UniqueIdentifier>{666f3a85-a59f-4f32-98eb-a97473bc0fe1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Utils">
-      <UniqueIdentifier>{dd66f9a3-f754-4c2a-945a-3d40a9f49ddf}</UniqueIdentifier>
+      <UniqueIdentifier>{e9bc0cfb-e59d-4a62-a032-01ac992fd442}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utils">
-      <UniqueIdentifier>{b1f45932-ec43-4a7d-a590-5c6278eeca8f}</UniqueIdentifier>
+      <UniqueIdentifier>{e52b7ef3-3569-4a35-b94c-084239387e2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{dabad9e4-f277-48f5-be85-94812d4f9bac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -68,6 +71,24 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AttributeMapperTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="NullRefTests.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="BsonTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DecimalTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTest.h">
+      <Filter>Header Files\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="ImplicitTest.h">
+      <Filter>Header Files\Document</Filter>
     </ClInclude>
     <ClInclude Include="AutoIdConcurrencyTest.h">
       <Filter>Header Files\Concurrency</Filter>
@@ -86,6 +107,15 @@
     </ClInclude>
     <ClInclude Include="ThreadTest.h">
       <Filter>Header Files\Concurrency</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIdTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoIndexDatabaseTest.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="BigDatabaseTest.h">
+      <Filter>Header Files\Database</Filter>
     </ClInclude>
     <ClInclude Include="TempFile.h">
       <Filter>Header Files\Utils</Filter>
@@ -186,28 +216,7 @@
     <ClInclude Include="UserVersionTest.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="BsonTest.h">
-      <Filter>Header Files\Document</Filter>
-    </ClInclude>
-    <ClInclude Include="DecimalTest.h">
-      <Filter>Header Files\Document</Filter>
-    </ClInclude>
-    <ClInclude Include="DocumentTest.h">
-      <Filter>Header Files\Document</Filter>
-    </ClInclude>
-    <ClInclude Include="ImplicitTest.h">
-      <Filter>Header Files\Document</Filter>
-    </ClInclude>
-    <ClInclude Include="AttributeMapperTest.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="AutoIdTest.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="AutoIndexDatabaseTest.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="BigDatabaseTest.h">
+    <ClInclude Include="ConnectionStringTestcpp.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
     <ClInclude Include="DbRefIndexTest.h">
@@ -240,9 +249,6 @@
     <ClInclude Include="NonIdPocoTest.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
-    <ClInclude Include="NullRefTests.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
     <ClInclude Include="PredicateBuilderTest.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
@@ -261,9 +267,6 @@
     <ClInclude Include="UpgradeScriptTest.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
-    <ClInclude Include="ConnectionStringTest.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -271,6 +274,27 @@
     </ClCompile>
     <ClCompile Include="LiteCppDBTests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttributeMapperTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="NullRefTests.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="BsonTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DecimalTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTest.cpp">
+      <Filter>Source Files\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="ImplicitTest.cpp">
+      <Filter>Source Files\Document</Filter>
     </ClCompile>
     <ClCompile Include="AutoIdConcurrencyTest.cpp">
       <Filter>Source Files\Concurrency</Filter>
@@ -289,6 +313,15 @@
     </ClCompile>
     <ClCompile Include="ThreadTest.cpp">
       <Filter>Source Files\Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIdTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoIndexDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="BigDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
     </ClCompile>
     <ClCompile Include="TempFile.cpp">
       <Filter>Source Files\Utils</Filter>
@@ -341,18 +374,6 @@
     <ClCompile Include="ReflectionGetterSetterTest.cpp">
       <Filter>Source Files\Mapper</Filter>
     </ClCompile>
-    <ClCompile Include="BsonTest.cpp">
-      <Filter>Source Files\Document</Filter>
-    </ClCompile>
-    <ClCompile Include="DecimalTest.cpp">
-      <Filter>Source Files\Document</Filter>
-    </ClCompile>
-    <ClCompile Include="DocumentTest.cpp">
-      <Filter>Source Files\Document</Filter>
-    </ClCompile>
-    <ClCompile Include="ImplicitTest.cpp">
-      <Filter>Source Files\Document</Filter>
-    </ClCompile>
     <ClCompile Include="AutoIndexEngineTest.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -401,18 +422,6 @@
     <ClCompile Include="UserVersionTest.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="AttributeMapperTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="AutoIdTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="AutoIndexDatabaseTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="BigDatabaseTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
     <ClCompile Include="ConnectionStringTest.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
@@ -437,34 +446,31 @@
     <ClCompile Include="LinqTest.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
-    <ClCompile Include="UpgradeScriptTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="UniqueIndexMapperTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="ULongListTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="StructTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="ShrinkDatabaseTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="PredicateBuilderTest.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="NullRefTests.cpp">
-      <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="NonIdPocoTest.cpp">
+    <ClCompile Include="LockTimeoutTests.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
     <ClCompile Include="MultiKeyMapperTest.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
-    <ClCompile Include="LockTimeoutTests.cpp">
+    <ClCompile Include="NonIdPocoTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="PredicateBuilderTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="ShrinkDatabaseTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="StructTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="ULongListTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="UniqueIndexMapperTest.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeScriptTest.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
   </ItemGroup>

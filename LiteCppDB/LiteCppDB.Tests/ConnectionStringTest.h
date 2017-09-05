@@ -2,7 +2,7 @@
 
 namespace LiteCppDB_Tests
 {
-	class MemoryStreamTest
+	class ConnectionStringTest
 	{
 	public:
 	};
