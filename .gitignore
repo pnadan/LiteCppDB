@@ -31,3 +31,7 @@
 *.out
 *.app
 /LiteCppDB/.vs/LiteCppDB/v15
+/LiteCppDB/LiteCppDB/x64/Debug
+/LiteCppDB/LiteCppDB.Console/x64/Debug
+/LiteCppDB/LiteCppDB.Tests/x64/Debug
+/LiteCppDB/x64/Debug
