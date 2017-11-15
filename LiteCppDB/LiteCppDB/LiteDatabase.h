@@ -23,7 +23,8 @@ namespace LiteCppDB
 		LiteCppDB::LiteEngine _engine;// = NULL;
 		LiteCppDB::BsonMapper _mapper;// (BsonMapper::Global());
 									  //LiteCppDB::Logger _log;
-		LiteCppDB::ConnectionString _connectionString = NULL;
+		//LiteCppDB::ConnectionString _connectionString = NULL;
+		LiteCppDB::ConnectionString _connectionString;// = nullptr;
 
 	public:
 		// Get current instance of BsonMapper used in this database instance (can be BsonMapper.Global)

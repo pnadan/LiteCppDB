@@ -15,11 +15,11 @@ namespace LiteCppDB
 	}
 
 	/// Slot position of index in data block
-	uint8_t IndexNode::getSlot()
+	uint64_t IndexNode::getSlot()
 	{
 		return this->mSlot;
 	}
-	void IndexNode::setSlot(uint8_t slot)
+	void IndexNode::setSlot(uint64_t slot)
 	{
 		this->mSlot = slot;
 	}
@@ -115,8 +115,10 @@ namespace LiteCppDB
 			this->mKeyLength; // bytes count in BsonValue
 	}
 
-	IndexNode::IndexNode(uint8_t level)
+	IndexNode::IndexNode(uint64_t level)
 	{
+		this->mKeyLength = 0;
+		this->mSlot = 0;
 		this->mPosition = PageAddress::getEmpty();
 		this->mPrevNode = PageAddress::getEmpty();
 		this->mNextNode = PageAddress::getEmpty();

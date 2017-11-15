@@ -13,16 +13,16 @@ namespace LiteCppDB
 	// Read a BsonDocument from reader
 	BsonDocument BsonReader::ReadDocument(ByteReader reader)
 	{
-		auto length = reader.ReadInt32();
-		auto end = reader.getPosition() + length - 5;
+		const auto length = reader.ReadInt32();
+		const auto end = reader.getPosition() + length - 12;
 		auto obj = BsonDocument();
 
 		while (reader.getPosition() < end)
 		{
 			std::string name;
 			auto value = this->ReadElement(reader, &name);
-			//obj.Set(name, value);
-			obj.setFieldForDoc(name, LiteCppDB::BsonDocument::BsonValue(value));
+
+			obj.setFieldForDoc(name, value);
 		}
 
 		reader.ReadByte(); // zero
@@ -33,29 +33,33 @@ namespace LiteCppDB
 	// Read an BsonArray from reader
 	BsonArray BsonReader::ReadArray(ByteReader reader)
 	{
-		auto length = reader.ReadInt32();
-		auto end = reader.getPosition() + length - 5;
-		auto arr = new BsonArray();
+		const auto length = reader.ReadInt32();
+		const auto end = reader.getPosition() + length - 12;
+		auto arr = BsonArray();
 
 		while (reader.getPosition() < end)
 		{
 			std::string name;
 			auto value = this->ReadElement(reader, &name);
-			arr->Add(value);
+			arr.Add(value);
 		}
 
 		reader.ReadByte(); // zero
 
-		return *arr;
+		return arr;
 	}
 
 	/// Reads an element (key-value) from an reader
 	BsonValue BsonReader::ReadElement(ByteReader& reader, /*out*/ std::string* name)
 	{
-		auto type = reader.ReadByte();
+		const auto type = reader.ReadByte();
 		*name = ReadCString(reader);
 
-		if (type == 0x02) // String
+		if (type == 0x0) // DateTime
+		{
+			return ReadDateTime(reader);
+		}
+		else if (type == 0x02) // String
 		{
 			return ReadString(reader);
 		}
@@ -70,7 +74,7 @@ namespace LiteCppDB
 		else if (type == 0x05) // Binary
 		{
 			auto length = reader.ReadInt32();
-			auto subType = reader.ReadByte();
+			const auto subType = reader.ReadByte();
 			auto bytes = reader.ReadBytes(length);
 
 			switch (subType)
@@ -87,6 +91,11 @@ namespace LiteCppDB
 		{
 			return reader.ReadBoolean();
 		}
+
+		else if (type == 0x09) // BsonType::DateTime
+		{
+			return ReadDateTime(reader);
+		}
 		else if (type == 0x10) // Int32
 		{
 			return reader.ReadInt32();
@@ -95,11 +104,24 @@ namespace LiteCppDB
 		{
 			return reader.ReadInt64();
 		}
+		else if (type == 0x13) // Double
+		{
+			return ReadDouble(reader);
+		}
 
 		throw std::exception("NotSupportedException(\"BSON type not supported\")");
 	}
 
 	std::string BsonReader::ReadString(ByteReader& reader)
+	{
+		auto length = reader.ReadInt32();
+		auto bytes = reader.ReadBytes(length - 1);
+		reader.ReadByte(); // discard \x00
+		std::string str(bytes.cbegin(), bytes.cend());
+		return str;
+	}
+
+	std::string BsonReader::ReadDateTime(ByteReader& reader)
 	{
 		auto length = reader.ReadInt32();
 		auto bytes = reader.ReadBytes(length - 1);
@@ -120,8 +142,26 @@ namespace LiteCppDB
 			_strBuffer.insert(_strBuffer.begin() + pos++, buf);
 		}
 
-		std::string str(_strBuffer.cbegin(), _strBuffer.cbegin()+pos);
+		std::string str(_strBuffer.begin(), _strBuffer.begin()+pos);
 		return str;
+	}
+
+	double BsonReader::ReadDouble(ByteReader& reader)
+	{
+		auto pos = 0;
+
+		while (true)
+		{
+			uint8_t buf = reader.ReadByte();
+			if (buf == 0x00)
+				break;
+			_strBuffer.insert(_strBuffer.begin() + pos++, buf);
+		}
+
+		std::string str(_strBuffer.begin(), _strBuffer.begin() + pos);
+
+		std::string::size_type sz;
+		return std::stod(str, &sz);
 	}
 
 	// use byte array buffer for CString (key-only)

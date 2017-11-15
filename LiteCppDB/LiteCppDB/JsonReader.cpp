@@ -66,7 +66,7 @@ namespace LiteCppDB
 				auto val = this->ReadExtendedDataType(key, token.getToken());
 
 				// if val is null then it's not a extended data type - it's just a object with $ attribute
-				if (!val.IsNull) return val;
+				if (!val.IsNull()) return val;
 			}
 
 			obj.Set(key, this->ReadValue(token));

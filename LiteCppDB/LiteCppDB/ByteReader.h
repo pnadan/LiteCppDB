@@ -47,6 +47,8 @@ namespace LiteCppDB
 
 		int64_t ReadInt64();
 
+		double ReadDouble(int32_t length);
+
 		LITECPPDB_API std::vector<uint8_t> ReadBytes(int32_t count);
 
 #pragma endregion Native data types

@@ -14,7 +14,8 @@ namespace LiteCppDB
 	{
 		std::ostringstream sw;
 
-		if (value.IsNull)
+		//if (value.IsNull)
+		if (!value.AsRawValue().has_value())
 			Serialize(BsonValue::getNull(), sw, pretty, writeBinary);
 		else
 			Serialize(value, sw, pretty, writeBinary);
@@ -28,7 +29,8 @@ namespace LiteCppDB
 		auto w = JsonWriter(writer);
 		w.setPretty(pretty);
 		w.setWriteBinary(writeBinary);
-		if (value.IsNull)
+		//if (value.IsNull)
+		if (!value.AsRawValue().has_value())
 			w.Serialize(BsonValue::getNull());
 		else
 			w.Serialize(value);
@@ -69,7 +71,7 @@ namespace LiteCppDB
 		std::istringstream sr;
 		auto reader = JsonReader(sr);
 		auto value = reader.Deserialize();
-		s.Seek((int)(reader.getPosition() - 1));
+		s.Seek(static_cast<int>(reader.getPosition() - 1));
 		return value;
 
 	}

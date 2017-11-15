@@ -104,6 +104,8 @@ namespace LiteCppDB
 		this->mItemCount = 0;
 		this->mFreeBytes = PAGE_AVAILABLE_BYTES;
 		this->mDiskData = std::vector<uint8_t>{ 0 };
+		this->mIsDirty = false;
+		this->mPageType = PageType::Empty;
 	}
 
 	void BasePage::UpdateItemCount()
@@ -113,10 +115,10 @@ namespace LiteCppDB
 	// Returns a size of specified number of pages
 	int64_t BasePage::GetSizeOfPages(uint32_t pageCount)
 	{
-		if ((double)pageCount <= 1.0 + ((double)INT64_MAX / (double)BasePage::PAGE_SIZE))
+		if ((double)pageCount <= 1.0 + (std::any_cast<double>(INT64_MAX) / std::any_cast<double>(BasePage::PAGE_SIZE)))
 			throw std::exception("OverflowException");
 		else
-			return (int64_t)pageCount * BasePage::PAGE_SIZE;
+			return static_cast<int64_t>(pageCount) * BasePage::PAGE_SIZE;
 	}
 
 	// Returns a size of specified number of pages
@@ -124,7 +126,7 @@ namespace LiteCppDB
 	{
 		if (pageCount < 0) throw std::exception("ArgumentOutOfRangeException(\"pageCount\", \"Could not be less than 0.\")");
 
-		return BasePage::GetSizeOfPages((uint32_t)pageCount);
+		return BasePage::GetSizeOfPages(static_cast<uint32_t>(pageCount));
 	}
 
 #pragma region Read / Write page
@@ -150,7 +152,7 @@ namespace LiteCppDB
 		auto reader = ByteReader(buffer);
 
 		auto pageID = reader.ReadUInt32();
-		auto pageType = (PageType)reader.ReadByte();
+		const auto pageType = static_cast<PageType>(reader.ReadByte());
 
 		if (pageID == 0 && static_cast<int32_t>(pageType) > 5)
 		{
@@ -199,12 +201,12 @@ namespace LiteCppDB
 	void BasePage::WriteHeader(ByteWriter writer)
 	{
 		writer.Write(this->mPageID);
-		writer.Write((uint8_t)this->mPageType);
+		writer.Write(static_cast<uint8_t>(this->mPageType));
 
 		writer.Write(this->mPrevPageID);
 		writer.Write(this->mNextPageID);
-		writer.Write((uint16_t)this->mItemCount);
-		writer.Write((uint16_t)this->mFreeBytes);
+		writer.Write(static_cast<uint16_t>(this->mItemCount));
+		writer.Write(static_cast<uint16_t>(this->mFreeBytes));
 		writer.Skip(8); // reserved 8 bytes
 	}
 

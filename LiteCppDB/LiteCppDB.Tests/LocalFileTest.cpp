@@ -12,7 +12,7 @@ namespace LiteCppDB_Tests
 
 		TEST_METHOD(Storage___LocalFile_Test)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 	};

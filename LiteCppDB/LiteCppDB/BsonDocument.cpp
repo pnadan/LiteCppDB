@@ -11,7 +11,10 @@ namespace LiteCppDB
 	BsonDocument::BsonDocument(std::map<std::string, BsonValue> dict)
 	{
 		if (dict.empty())
-			throw std::exception("ArgumentNullException dict");
+		{
+			return;
+			//throw std::exception("ArgumentNullException dict");
+		}
 	}
 
 	LITECPPDB_API BsonValue BsonDocument::getFieldForDoc(std::string name)
@@ -47,7 +50,7 @@ namespace LiteCppDB
 		// do not use regex because is too slow
 		for (auto i = 0; i < static_cast<int32_t>(field.length()); i++)
 		{
-			auto c = field[i];
+			const auto c = field[i];
 
 			if (isalpha(c) || c == '_' || c == '$')
 			{
@@ -132,7 +135,7 @@ namespace LiteCppDB
 	BsonValue BsonDocument::TryGetValue(std::string key)
 	{
 		auto m = this->getRawValueSuperMap();
-		auto count = m.count(key);
+		const auto count = m.count(key);
 		auto result = m.find(key);
 
 		if (result != m.end())

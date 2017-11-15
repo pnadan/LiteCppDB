@@ -12,19 +12,19 @@ namespace LiteCppDB_Tests
 
 		TEST_METHOD(Database___FilterAndSortAscending)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 
 		TEST_METHOD(Database___FilterAndSortAscendingWithoutIndex)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 
 		TEST_METHOD(Database___FilterAndSortDescending)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 	};

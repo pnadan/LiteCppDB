@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "BsonValue.h"
+#include <ctime> 
+#include <iomanip>
 
+#include <sstream>
+#include <chrono>
+#include <memory>
 
 using namespace std;
 
@@ -36,7 +41,6 @@ namespace LiteCppDB
 		this->mRawValueMap = rawValue;
 	}
 
-
 	LITECPPDB_API const BsonValue BsonValue::getNull()
 	{
 		return BsonValue();
@@ -51,7 +55,6 @@ namespace LiteCppDB
 	{
 		return BsonValue();
 	}
-
 
 #pragma region Constructor
 
@@ -160,6 +163,15 @@ namespace LiteCppDB
 
 	}
 
+	BsonValue::BsonValue(double value)
+	{
+		if (&value == nullptr)
+			this->setType(BsonType::Null);
+		else
+			this->setType(BsonType::Double);
+		this->mRawValue = value;
+	}
+
 	BsonValue::BsonValue(std::string value)
 	{
 		if (&value == nullptr)
@@ -170,6 +182,18 @@ namespace LiteCppDB
 
 		if (!this->IsString())
 			throw std::exception("IsString is not correct");
+	}
+
+	BsonValue::BsonValue(std::chrono::time_point<std::chrono::system_clock> value)
+	{
+		if (&value == nullptr)
+			this->setType(BsonType::Null);
+		else
+			this->setType(BsonType::DateTime);
+		this->mRawValue = value;
+
+		if (!this->IsDateTime())
+			throw std::exception("IsDateTime is not correct");
 	}
 
 	BsonValue::BsonValue(ObjectId value)
@@ -202,9 +226,23 @@ namespace LiteCppDB
 
 	std::string BsonValue::AsString()
 	{
-		if (this->mType == BsonType::Null)
+		if (this->mType != BsonType::String)
 		{
-			return std::string();
+			if (this->mType == BsonType::DateTime)
+			{
+				const std::chrono::time_point<std::chrono::system_clock> valueClock = std::any_cast<std::chrono::time_point<std::chrono::system_clock>>(this->mRawValue);
+
+				const auto in_time_t = std::chrono::system_clock::to_time_t(valueClock);
+
+				struct tm timeinfo;
+				::localtime_s(&timeinfo, &in_time_t);
+				std::stringstream ss;
+				ss << std::put_time(&timeinfo, "%d-%m-%Y %H:%M:%S");
+
+				return ss.str();
+			}
+			else
+				return std::string();
 		}
 		else
 		{
@@ -214,7 +252,7 @@ namespace LiteCppDB
 
 	int32_t BsonValue::AsInt32()
 	{
-		if (this->mType == BsonType::Null)
+		if (this->mType != BsonType::Int32)
 		{
 			return int32_t(0);
 		}
@@ -226,7 +264,7 @@ namespace LiteCppDB
 
 	int64_t BsonValue::AsInt64()
 	{
-		if (this->mType == BsonType::Null)
+		if (this->mType != BsonType::Int64)
 		{
 			return int64_t(0);
 		}
@@ -236,15 +274,57 @@ namespace LiteCppDB
 		}
 	}
 
+	uint64_t BsonValue::AsUInt64()
+	{
+		if (this->mType != BsonType::UInt64)
+		{
+			return uint64_t(0);
+		}
+		else
+		{
+			return std::any_cast<uint64_t>(this->mRawValue);
+		}
+	}
+
 	double BsonValue::AsDouble()
 	{
-		if (this->mType == BsonType::Null)
+		if (this->mType != BsonType::Double)
 		{
 			return double(0);
 		}
 		else
 		{
 			return std::any_cast<double>(this->mRawValue);
+		}
+	}
+
+	std::any BsonValue::AsRawValue()
+	{
+		if (this->mType == BsonType::Null)
+		{
+			return std::any();
+		}
+		else
+		{
+			return this->mRawValue;
+		}
+	}
+
+	std::string BsonValue::AsDateTime()
+	{
+		if (this->mType != BsonType::DateTime)
+		{
+			return std::string();
+		}
+		else
+		{
+			const auto actualtime = std::any_cast<std::chrono::time_point<std::chrono::system_clock>>(this->mRawValue);
+			const auto in_time_t = std::chrono::system_clock::to_time_t(actualtime);
+			std::stringstream ss;
+			struct tm timeinfo;
+			::localtime_s(&timeinfo, &in_time_t);
+			ss << std::put_time(&timeinfo, "%d-%m-%Y %H:%M:%S");
+			return ss.str();
 		}
 	}
 
@@ -262,14 +342,12 @@ namespace LiteCppDB
 
 	void BsonValue::operator==(const std::string value)
 	{
-		//return new BsonValue(value);
+		//TODO
 	}
 
 	bool operator ==(const BsonValue& lhs, const BsonValue& rhs)
 	{
-		if (lhs.IsNull && rhs.IsNull)
-			return true;
-
+		//TODO
 		return false;
 	}
 
@@ -287,21 +365,26 @@ namespace LiteCppDB
 			case BsonType::Int16: this->mLength = 2; break;
 			case BsonType::Int32: this->mLength = 4; break;
 			case BsonType::Int64: this->mLength = 8; break;
+			case BsonType::Double: this->mLength = 8 + static_cast<int32_t>(std::to_string((this->AsDouble())).length()); break;
 			case BsonType::String:
 				this->mLength = GetBytesInString(std::any_cast<std::string>(this->getValue()));
 				break;
-
 			case BsonType::Document:
-				auto doc = this->getRawValueSuperMap();
-				this->mLength = 5; // header + footer
-				for_each(cbegin(doc), cend(doc), [this, &recalc](const auto& p)
 				{
-					if (&(p.second) == nullptr)
-						this->mLength += this->GetBytesCountElement(p.first, BsonValue::getNull(), recalc);
-					else
-						this->mLength += this->GetBytesCountElement(p.first, p.second, recalc);
-				});
-
+					auto doc = this->getRawValueSuperMap();
+					this->mLength = 5; // header + footer
+					for_each(cbegin(doc), cend(doc), [this, &recalc](const auto& p)
+					{
+						if (&(p.second) == nullptr)
+							this->mLength += this->GetBytesCountElement(p.first, BsonValue::getNull(), recalc);
+						else
+							this->mLength += this->GetBytesCountElement(p.first, p.second, recalc);
+					});
+				}
+				break;
+			case BsonType::DateTime: this->mLength = 24; break;
+			default:
+				throw std::exception("LiteException.InvalidType : Specifyed getType not found!");
 				break;
 		}
 

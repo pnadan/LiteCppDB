@@ -32,7 +32,7 @@ namespace LiteCppDB
 
 	bool ByteReader::ReadBoolean()
 	{
-		auto value = this->mBuffer[this->mPos];
+		const auto value = this->mBuffer[this->mPos];
 
 		this->mPos++;
 
@@ -50,42 +50,51 @@ namespace LiteCppDB
 	{
 		this->mPos += 2;
 
-		return (uint16_t)(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
+		return static_cast<uint16_t>(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
 	}
 
 	uint32_t ByteReader::ReadUInt32()
 	{
 		this->mPos += 4;
 
-		return (uint32_t)(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
+		return static_cast<uint32_t>(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
 	}
 
 	uint64_t ByteReader::ReadUInt64()
 	{
 		this->mPos += 8;
 
-		return (uint64_t)(((uint64_t)mBuffer.at(mPos - 1) << 56) | ((uint64_t)mBuffer.at(mPos - 2) << 48) | ((uint64_t)mBuffer.at(mPos - 3) << 40) | ((uint64_t)mBuffer.at(mPos - 4) << 32) | ((uint64_t)mBuffer.at(mPos - 5) << 24) | ((uint64_t)mBuffer.at(mPos - 6) << 16) | ((uint64_t)mBuffer.at(mPos - 7) << 8) | ((uint64_t)mBuffer.at(mPos - 8)));
+		return static_cast<uint64_t>(((uint64_t)mBuffer.at(mPos - 1) << 56) | ((uint64_t)mBuffer.at(mPos - 2) << 48) | ((uint64_t)mBuffer.at(mPos - 3) << 40) | ((uint64_t)mBuffer.at(mPos - 4) << 32) | ((uint64_t)mBuffer.at(mPos - 5) << 24) | ((uint64_t)mBuffer.at(mPos - 6) << 16) | ((uint64_t)mBuffer.at(mPos - 7) << 8) | ((uint64_t)mBuffer.at(mPos - 8)));
 	}
 
 	int16_t ByteReader::ReadInt16()
 	{
 		this->mPos += 2;
 
-		return (int16_t)(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
+		return static_cast<int16_t>(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
 	}
 
 	int32_t ByteReader::ReadInt32()
 	{
 		this->mPos += 4;
 
-		return (int32_t)(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
+		return static_cast<int32_t>(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
 	}
 
 	int64_t ByteReader::ReadInt64()
 	{
 		this->mPos += 8;
 
-		return (int64_t)(((int64_t)mBuffer.at(mPos - 1) << 56) | ((int64_t)mBuffer.at(mPos - 2) << 48) | ((int64_t)mBuffer.at(mPos - 3) << 40) | ((int64_t)mBuffer.at(mPos - 4) << 32) | ((int64_t)mBuffer.at(mPos - 5) << 24) | ((int64_t)mBuffer.at(mPos - 6) << 16) | ((int64_t)mBuffer.at(mPos - 7) << 8) | ((int64_t)mBuffer.at(mPos - 8)));
+		return static_cast<int64_t>(((int64_t)mBuffer.at(mPos - 1) << 56) | ((int64_t)mBuffer.at(mPos - 2) << 48) | ((int64_t)mBuffer.at(mPos - 3) << 40) | ((int64_t)mBuffer.at(mPos - 4) << 32) | ((int64_t)mBuffer.at(mPos - 5) << 24) | ((int64_t)mBuffer.at(mPos - 6) << 16) | ((int64_t)mBuffer.at(mPos - 7) << 8) | ((int64_t)mBuffer.at(mPos - 8)));
+	}
+
+	double ByteReader::ReadDouble(int32_t length)
+	{
+		auto strVector = this->ReadBytes(length);
+
+		std::string::size_type sz;
+		std::string str(strVector.cbegin(), strVector.cend());
+		return std::stod(str, &sz);
 	}
 
 	std::vector<uint8_t> ByteReader::ReadBytes(int32_t count)
@@ -115,13 +124,14 @@ namespace LiteCppDB
 
 	std::string ByteReader::ReadString(int32_t length)
 	{
-		auto bytes = this->ReadBytes(length);
-		return std::string();
+		auto strVector = this->ReadBytes(length);
+		std::string str(strVector.cbegin(), strVector.cend());
+		return str;
 	}
 
 	ObjectId ByteReader::ReadObjectId()
 	{
-		return new ObjectId(this->ReadBytes(12));
+		return ObjectId(this->ReadBytes(12));
 	}
 
 	PageAddress ByteReader::ReadPageAddress()
@@ -131,7 +141,7 @@ namespace LiteCppDB
 
 	LiteCppDB::BsonValue ByteReader::ReadBsonValue(uint16_t length)
 	{
-		auto type = (BsonType)this->ReadByte();
+		const auto type = static_cast<BsonType>(this->ReadByte());
 
 		switch (type)
 		{
@@ -144,6 +154,8 @@ namespace LiteCppDB
 			case BsonType::UInt16: return this->ReadUInt16();
 			case BsonType::UInt32: return this->ReadUInt32();
 			case BsonType::UInt64: return this->ReadUInt64();
+
+			case BsonType::Double: return this->ReadDouble(length);
 
 			case BsonType::String: return this->ReadString(length);
 

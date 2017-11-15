@@ -12,13 +12,13 @@ namespace LiteCppDB_Tests
 
 		TEST_METHOD(Database___ConnectionString_Test)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 
 		TEST_METHOD(Database___LiteDatabase_FromConnectionString_SetsLogLevel)
 		{
-			bool m_TestImplemented = false;
+			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 		}
 	};

@@ -82,6 +82,7 @@ namespace LiteCppDB
 	// Initializes a new instance of ObjectId class from another ObjectId.
 	ObjectId::ObjectId(LiteCppDB::ObjectId* from)
 	{
+		this->mTimestamp = 0;
 		this->mIncrement = from->mTimestamp;
 		this->mMachine = from->mMachine;
 		this->mPid = from->mPid;
@@ -91,6 +92,10 @@ namespace LiteCppDB
 	// Initializes a new instance of the ObjectId class from hex string.
 	ObjectId::ObjectId(std::string value)//TODO : FromHex(value)
 	{
+		this->mIncrement = 0;
+		this->mMachine = 0;
+		this->mPid = 0;
+		this->mTimestamp = 0;
 	}
 
 	// Initializes a new instance of the ObjectId class from byte array.
@@ -98,7 +103,7 @@ namespace LiteCppDB
 	{
 		this->mTimestamp = (bytes.at(0) << 24) + (bytes.at(1) << 16) + (bytes.at(2) << 8) + bytes.at(3);
 		this->mMachine = (bytes[4] << 16) + (bytes[5] << 8) + bytes[6];
-		this->mPid = (short)((bytes[7] << 8) + bytes[8]);
+		this->mPid = static_cast<int16_t>((bytes[7] << 8) + bytes[8]);
 		this->mIncrement = (bytes[9] << 16) + (bytes[10] << 8) + bytes[11];
 	}
 
@@ -107,16 +112,19 @@ namespace LiteCppDB
 	{
 		if (value.empty()) throw std::exception("ArgumentNullException(\"val\")");
 
-		std::array<uint8_t, 12> bytes;
+		std::array<uint8_t, 12> bytes{0,0,0,0,0,0,0,0,0,0,0,0};
 
 		std::vector<uint8_t> myVector(value.begin(), value.end());
 
 		if (12 == myVector.size())
 		{
-			for (int32_t i = 0; i < 12; i++)
+			int32_t i = 0;
+			for (auto& byte : bytes)
 			{
-				bytes[i] = myVector.at(i);
+				byte = myVector.at(i);
+				i++;
 			}
+
 		}
 
 		return bytes;
@@ -172,18 +180,18 @@ namespace LiteCppDB
 	{
 		std::array<uint8_t, 12> bytes =
 		{
-			(uint8_t)(this->mTimestamp >> 24),
-			(uint8_t)(this->mTimestamp >> 16),
-			(uint8_t)(this->mTimestamp >> 8),
-			(uint8_t)(this->mTimestamp),
-			(uint8_t)(this->mMachine >> 16),
-			(uint8_t)(this->mMachine >> 8),
-			(uint8_t)(this->mMachine),
-			(uint8_t)(this->mPid >> 8),
-			(uint8_t)(this->mPid),
-			(uint8_t)(this->mIncrement >> 16),
-			(uint8_t)(this->mIncrement >> 8),
-			(uint8_t)(this->mIncrement)
+			static_cast<uint8_t>(this->mTimestamp >> 24),
+			static_cast<uint8_t>(this->mTimestamp >> 16),
+			static_cast<uint8_t>(this->mTimestamp >> 8),
+			static_cast<uint8_t>(this->mTimestamp),
+			static_cast<uint8_t>(this->mMachine >> 16),
+			static_cast<uint8_t>(this->mMachine >> 8),
+			static_cast<uint8_t>(this->mMachine),
+			static_cast<uint8_t>(this->mPid >> 8),
+			static_cast<uint8_t>(this->mPid),
+			static_cast<uint8_t>(this->mIncrement >> 16),
+			static_cast<uint8_t>(this->mIncrement >> 8),
+			static_cast<uint8_t>(this->mIncrement)
 		};
 
 		return bytes;

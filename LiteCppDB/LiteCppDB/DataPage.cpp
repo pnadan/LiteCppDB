@@ -27,16 +27,18 @@ namespace LiteCppDB
 
 	DataPage::DataPage()
 	{
+		this->mPageType = PageType::Empty;
 	}
 
 	DataPage::DataPage(uint32_t pageID) : BasePage(pageID)
 	{
+		this->mPageType = PageType::Empty;
 	}
 
 	// Update freebytes + items count
 	void DataPage::UpdateItemCount()
 	{
-		this->setItemCount((uint16_t)this->mDataBlocks.size());
+		this->setItemCount(static_cast<uint16_t>(this->mDataBlocks.size()));
 	}
 
 #pragma region Read / Write pages

@@ -49,7 +49,7 @@ namespace LiteCppDB_Console
 				auto s = LiteCppDB::StringScanner::StringScanner(cmd);
 				auto found = false;
 
-				for (int32_t i = 0; i < (int32_t)commands.size(); ++i)
+				for (int32_t i = 0; i < static_cast<int32_t>(commands.size()); ++i)
 				{
 					if (!commands.at(i)->IsCommand(s))
 						continue;

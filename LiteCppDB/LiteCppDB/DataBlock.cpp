@@ -42,6 +42,7 @@ namespace LiteCppDB
 
 	DataBlock::DataBlock()
 	{
+		this->mLength = 0;
 		this->mPosition = PageAddress::getEmpty();
 		this->mExtendPageID = UINT32_MAX;
 		this->mData = std::vector<uint8_t>(0);

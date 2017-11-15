@@ -28,7 +28,7 @@ namespace LiteCppDB
 	// Update freebytes + items count
 	void ExtendPage::UpdateItemCount()
 	{
-		this->setItemCount((uint16_t)this->mData.size());
+		this->setItemCount(static_cast<uint16_t>(this->mData.size()));
 		this->setFreeBytes(PAGE_AVAILABLE_BYTES - std::any_cast<int32_t>(this->mData.size())); // not used on ExtendPage
 	}
 

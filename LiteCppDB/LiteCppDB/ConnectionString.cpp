@@ -104,7 +104,16 @@ namespace LiteCppDB
 	// Initialize empty connection string
 	ConnectionString::ConnectionString()
 	{
+		this->mCacheSize = 0;
+		this->mUpgrade = 0;
+		this->mInitialSize = 0;
+		this->mLog = 0;
+		this->mJournal = false;
+		this->mAsync = false;
 
+		this->mFilename = std::string();
+		this->mPassword = std::string();;
+		this->mLimitSize = 0;;
 	}
 	ConnectionString::~ConnectionString()
 	{
@@ -114,6 +123,10 @@ namespace LiteCppDB
 	// Initialize connection string parsing string in "key1=value1;key2=value2;...." format or only "filename" as default (when no ; char found)
 	ConnectionString::ConnectionString(std::string connectionString)
 	{
+		this->mLog = 0;
+		this->mAsync = false;
+		this->mInitialSize = 0;
+
 		if (connectionString == std::string() || connectionString.empty())
 		{
 			throw std::exception("connectionString");

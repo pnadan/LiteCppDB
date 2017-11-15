@@ -24,6 +24,9 @@ namespace LiteCppDB
 
 	JsonWriter::JsonWriter(std::ostringstream& writer)
 	{
+		this->_indent = 0;
+		this->mWriteBinary = false;
+		this->mPretty = false;
 		this->_writer = &writer;
 	}
 
@@ -32,7 +35,8 @@ namespace LiteCppDB
 		_indent = 0;
 		_spacer = this->mPretty ? " " : "";
 
-		if (value.IsNull)
+		//if (value.IsNull)
+		if (!value.AsRawValue().has_value())
 			this->WriteValue(BsonValue::getNull());
 		else
 			this->WriteValue(value);
@@ -65,6 +69,14 @@ namespace LiteCppDB
 
 		case BsonType::Int64:
 			this->WriteExtendDataType("$numberLong", std::to_string(std::any_cast<int64_t>(value.getRawValueSuper())));
+			break;
+
+		case BsonType::Double:
+			this->WriteExtendDataType("0.0########", std::to_string(std::any_cast<double>(value.getRawValueSuper())));
+			break;
+
+		case BsonType::DateTime:
+			this->WriteExtendDataType("$date", (value.AsDateTime()));
 			break;
 
 		case BsonType::MinValue:
@@ -111,7 +123,7 @@ namespace LiteCppDB
 			{
 			}
 
-			if (item.IsNull)
+			if (item.IsNull())
 				this->WriteValue(BsonValue::getNull());
 			else
 				this->WriteValue(item);
@@ -164,7 +176,7 @@ namespace LiteCppDB
 				break;
 
 			default:
-				int i = (int)c;
+				int i = static_cast<int>(c);
 				if (i < 32 || i > 127)
 				{
 					*(_writer) << "\\u";
@@ -207,7 +219,8 @@ namespace LiteCppDB
 			*(_writer) << ' ';
 		}
 
-		if (value.IsNull)
+		//if (value.IsNull)
+		if (!value.AsRawValue().has_value())
 			this->WriteValue(BsonValue::getNull());
 		else
 			this->WriteValue(value);

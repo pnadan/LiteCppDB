@@ -72,6 +72,9 @@ namespace LiteCppDB
 
 	CollectionIndex::CollectionIndex()
 	{
+		this->mFreeIndexPageID = 0;
+		this->mUnique = false;
+		this->mSlot = 0;
 		this->Clear();
 	}
 
@@ -82,5 +85,6 @@ namespace LiteCppDB
 		this->mUnique = false;
 		this->mHeadNode = PageAddress::getEmpty();
 		this->mFreeIndexPageID = UINT32_MAX;
+		this->mSlot = 0;
 	}
 }

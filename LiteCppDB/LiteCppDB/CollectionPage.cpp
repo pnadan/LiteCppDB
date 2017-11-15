@@ -49,12 +49,14 @@ namespace LiteCppDB
 
 	CollectionPage::CollectionPage()
 	{
+		this->mFreeDataPageID = 0;
+		this->mDocumentCount = 0;
 	}
 
 	CollectionPage::CollectionPage(uint32_t pageID)
 	{
 		this->mFreeDataPageID = UINT32_MAX;
-		this->setDocumentCount(0);
+		this->mDocumentCount = 0;
 		this->setItemCount(1); // fixed for CollectionPage
 		this->setFreeBytes(0); // no free bytes on collection-page - only one collection per page
 

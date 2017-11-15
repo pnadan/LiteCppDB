@@ -8,6 +8,11 @@ namespace LiteCppDB
 
 	BsonMapper::BsonMapper()
 	{
+		this->mIncludeFields = false;
+		this->mIncludeNonPublic = false;
+		this->mEmptyStringToNull = false;
+		this->mSerializeNullValues = false;
+		this->mTrimWhitespace = false;
 	}
 
 	// Indicate that mapper do not serialize null values (default false)

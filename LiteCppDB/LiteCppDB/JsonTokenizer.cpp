@@ -70,6 +70,8 @@ namespace LiteCppDB
 
 	JsonTokenizer::JsonTokenizer(std::istringstream* reader)
 	{
+		this->mPosition = 0;
+		this->mEOF = false;
 		_reader = reader;
 		this->setPosition(0);
 		this->Read();
@@ -92,7 +94,7 @@ namespace LiteCppDB
 			this->setEOF(true);
 		}
 
-		(*_current) = (char)c;
+		(*_current) = static_cast<char>(c);
 
 		return (*_current);
 	}
@@ -225,14 +227,23 @@ namespace LiteCppDB
 
 				switch ((*_current))
 				{
-				case '"': sb.append((char*)'"'); break;
-				case '\\': sb.append((char*)'\\'); break;
-				case '/': sb.append((char*)'/'); break;
-				case 'b': sb.append((char*)'\b'); break;
-				case 'f': sb.append((char*)'\f'); break;
-				case 'n': sb.append((char*)'\n'); break;
-				case 'r': sb.append((char*)'\r'); break;
-				case 't': sb.append((char*)'\t'); break;
+				case '"': sb.append(_current); break;
+				//case '"': sb.append(reinterpret_cast<char*>('"')); break;
+				case '\\': sb.append(_current); break;
+				//case '\\': sb.append(reinterpret_cast<char*>('\\')); break;
+				case '/': sb.append(_current); break;
+				//case '/': sb.append(reinterpret_cast<char*>('/')); break;
+
+				case 'b': sb.append(_current); break;
+				//case 'b': sb.append(reinterpret_cast<char*>('\b')); break;
+				case 'f': sb.append(_current); break;
+				//case 'f': sb.append(reinterpret_cast<char*>('\f')); break;
+				case 'n': sb.append(_current); break;
+				//case 'n': sb.append(reinterpret_cast<char*>('\n')); break;
+				case 'r': sb.append(_current); break;
+				//case 'r': sb.append(reinterpret_cast<char*>('\r')); break;
+				case 't': sb.append(_current); break;
+				//case 't': sb.append(reinterpret_cast<char*>('\t')); break;
 				case 'u':
 					auto codePoint = this->ParseUnicode(this->Read(), this->Read(), this->Read(), this->Read());
 					std::string s = std::any_cast<std::string>(codePoint);
@@ -267,11 +278,11 @@ namespace LiteCppDB
 	{
 		uint32_t p1 = 0;
 		if (c1 >= '0' && c1 <= '9')
-			p1 = (uint32_t)(c1 - '0') * multiplier;
+			p1 = static_cast<uint32_t>(c1 - '0') * multiplier;
 		else if (c1 >= 'A' && c1 <= 'F')
-			p1 = (uint32_t)((c1 - 'A') + 10) * multiplier;
+			p1 = static_cast<uint32_t>((c1 - 'A') + 10) * multiplier;
 		else if (c1 >= 'a' && c1 <= 'f')
-			p1 = (uint32_t)((c1 - 'a') + 10) * multiplier;
+			p1 = static_cast<uint32_t>((c1 - 'a') + 10) * multiplier;
 		return p1;
 	}
 }

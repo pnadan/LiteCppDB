@@ -83,6 +83,7 @@ namespace LiteCppDB
 
 	HeaderPage::HeaderPage() : BasePage(0)
 	{
+		this->mPageType = PageType::Empty;
 		this->mChangeID = 0;
 		this->mFreeEmptyPageID = UINT32_MAX;
 		this->mLastPageID = 0;
@@ -106,7 +107,7 @@ namespace LiteCppDB
 	void HeaderPage::ReadContent(ByteReader reader)
 	{
 		auto info = reader.ReadString(std::any_cast<int32_t>(HEADER_INFO.size()));
-		auto ver = reader.ReadByte();
+		const auto ver = reader.ReadByte();
 
 		if (info != HEADER_INFO) throw std::exception("LiteException.InvalidDatabase()");
 		if (ver != FILE_VERSION) throw std::exception("LiteException.InvalidDatabaseVersion(ver)");
@@ -117,7 +118,7 @@ namespace LiteCppDB
 		this->mUserVersion = reader.ReadUInt16();
 
 		// read page collections references (position on end of page)
-		auto cols = reader.ReadByte();
+		const auto cols = reader.ReadByte();
 		for (auto i = 0; i < cols; i++)
 		{
 			this->mCollectionPages.insert(std::pair<std::string, uint32_t>(reader.ReadString(), reader.ReadUInt32()));
@@ -133,7 +134,7 @@ namespace LiteCppDB
 		writer.Write(this->mLastPageID);
 		writer.Write(this->mUserVersion);
 
-		writer.Write((uint8_t)this->mCollectionPages.size());
+		writer.Write(static_cast<uint8_t>(this->mCollectionPages.size()));
 
 		for_each(cbegin(this->mCollectionPages), cend(this->mCollectionPages), [&writer](std::pair<std::string, uint32_t>(cp))
 		{

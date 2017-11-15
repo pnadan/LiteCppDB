@@ -71,7 +71,11 @@ namespace LiteCppDB
 		LITECPPDB_API BsonValue(int32_t value);
 		LITECPPDB_API BsonValue(int64_t value);
 
+		LITECPPDB_API BsonValue(double value);
+
 		LITECPPDB_API BsonValue(std::string value);
+
+		LITECPPDB_API BsonValue(std::chrono::time_point<std::chrono::system_clock> value);
 
 		LITECPPDB_API BsonValue(ObjectId value);
 
@@ -89,37 +93,44 @@ namespace LiteCppDB
 
 		LITECPPDB_API int32_t AsInt32();
 
-		int64_t AsInt64();
+		LITECPPDB_API int64_t AsInt64();
 
-		double AsDouble();
+		LITECPPDB_API uint64_t AsUInt64();
+
+		LITECPPDB_API double AsDouble();
+
+		LITECPPDB_API std::any AsRawValue();
+
+		//LITECPPDB_API std::chrono::time_point<std::chrono::system_clock> AsDateTime();
+		LITECPPDB_API std::string AsDateTime();
 
 #pragma endregion Convert types
 
 #pragma region IsTypes
 
-		bool IsNull{ this->mType == LiteCppDB::BsonType::Null };
+		LITECPPDB_API bool IsNull() { return (this->mType == LiteCppDB::BsonType::Null); };
 
 		bool IsArray{ false };
 
-		bool IsDocument() { return (this->mType == LiteCppDB::BsonType::Document); }
+		LITECPPDB_API bool IsDocument() { return (this->mType == LiteCppDB::BsonType::Document); }
 
-		bool IsInt8{ this->mType == LiteCppDB::BsonType::Int8 };
+		LITECPPDB_API bool IsInt8() { return (this->mType == LiteCppDB::BsonType::Int8); };
 
-		bool IsInt16{ this->mType == LiteCppDB::BsonType::Int16 };
+		LITECPPDB_API bool IsInt16() { return (this->mType == LiteCppDB::BsonType::Int16); };
 
-		LITECPPDB_API bool IsInt32() { return (this->mType == LiteCppDB::BsonType::Int32); }
+		LITECPPDB_API bool IsInt32() { return (this->mType == LiteCppDB::BsonType::Int32); };
 
-		bool IsInt64{ this->mType == LiteCppDB::BsonType::Int64 };
+		LITECPPDB_API bool IsInt64() { return (this->mType == LiteCppDB::BsonType::Int64); };
 
-		bool IsUInt8{ this->mType == LiteCppDB::BsonType::UInt8 };
+		LITECPPDB_API bool IsUInt8() { return (this->mType == LiteCppDB::BsonType::UInt8); };
 
-		bool IsUInt16{ this->mType == LiteCppDB::BsonType::UInt16 };
+		LITECPPDB_API bool IsUInt16() { return (this->mType == LiteCppDB::BsonType::UInt16); };
 
-		bool IsUInt32{ this->mType == LiteCppDB::BsonType::UInt32 };
+		LITECPPDB_API bool IsUInt32() { return (this->mType == LiteCppDB::BsonType::UInt32); };
 
-		bool IsUInt64{ this->mType == LiteCppDB::BsonType::UInt64 };
+		LITECPPDB_API bool IsUInt64() { return (this->mType == LiteCppDB::BsonType::UInt64); };
 
-		bool IsDouble{ this->mType == LiteCppDB::BsonType::Double };
+		LITECPPDB_API bool IsDouble() { return (this->mType == LiteCppDB::BsonType::Double); };
 
 		bool IsDecimal{ false };
 
@@ -127,19 +138,19 @@ namespace LiteCppDB
 
 		bool IsBinary{ false };
 
-		bool IsBoolean{ this->mType == LiteCppDB::BsonType::Boolean };
+		LITECPPDB_API bool IsBoolean() { return (this->mType == LiteCppDB::BsonType::Boolean); };
 
-		LITECPPDB_API bool IsString() { return (this->mType == LiteCppDB::BsonType::String); }
+		LITECPPDB_API bool IsString() { return (this->mType == LiteCppDB::BsonType::String); };
 
-		bool IsObjectId{ this->mType == LiteCppDB::BsonType::ObjectId };
+		LITECPPDB_API bool IsObjectId() { return (this->mType == LiteCppDB::BsonType::ObjectId); };
 
-		bool IsGuid{ this->mType == LiteCppDB::BsonType::Guid };
+		LITECPPDB_API bool IsGuid() { return (this->mType == LiteCppDB::BsonType::Guid); };
 
-		bool IsDateTime{ this->mType == LiteCppDB::BsonType::DateTime };
+		LITECPPDB_API bool IsDateTime() { return (this->mType == LiteCppDB::BsonType::DateTime); };
 
-		bool IsMinValue{ this->mType == LiteCppDB::BsonType::MinValue };
+		LITECPPDB_API bool IsMinValue() { return (this->mType == LiteCppDB::BsonType::MinValue); };
 
-		bool IsMaxValue{ this->mType == LiteCppDB::BsonType::MaxValue };
+		LITECPPDB_API bool IsMaxValue() { return (this->mType == LiteCppDB::BsonType::MaxValue); };
 
 #pragma endregion IsTypes
 
@@ -163,6 +174,9 @@ namespace LiteCppDB
 
 		//static bool operator ==(BsonValue lhs, BsonValue rhs);
 		friend bool operator ==(const BsonValue& lhs, const BsonValue& rhs);
+
+		//bool operator ==(const std::any& lhs, const std::any& rhs) const {return lhs == rhs};
+		//bool operator ==(const std::any& rhs) const { return this->mRawValue == rhs };
 
 #pragma endregion Operators
 

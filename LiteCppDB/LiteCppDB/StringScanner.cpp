@@ -129,7 +129,7 @@ namespace LiteCppDB
 		}
 		else
 		{
-			return nullptr;
+			return std::string();
 		}
 	}
 

@@ -13,7 +13,7 @@ namespace LiteCppDB
 	{
 	private:
 		LiteCppDB::PageAddress mPosition;
-		uint8_t mSlot;
+		uint64_t mSlot;
 		LiteCppDB::PageAddress mPrevNode;
 		LiteCppDB::PageAddress mNextNode;
 		std::vector<LiteCppDB::PageAddress> mPrev;
@@ -39,8 +39,8 @@ namespace LiteCppDB
 		void setPosition(PageAddress position);
 
 		// Slot position of index in data block
-		uint8_t getSlot();
-		void setSlot(uint8_t slot);
+		uint64_t getSlot();
+		void setSlot(uint64_t slot);
 
 		// Prev node in same document list index nodes
 		PageAddress getPrevNode();
@@ -79,7 +79,7 @@ namespace LiteCppDB
 		// Get the length size of this node in disk - not persistable
 		int32_t getLength();
 
-		IndexNode(uint8_t level);
+		IndexNode(uint64_t level);
 	};
 
 	class IndexNodeComparer : public IndexNode

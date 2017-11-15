@@ -36,7 +36,11 @@ namespace LiteCppDB
 
 		std::string ReadString(ByteReader& reader);
 
+		std::string ReadDateTime(ByteReader& reader);
+
 		std::string ReadCString(ByteReader& reader);
+
+		double ReadDouble(ByteReader& reader);
 
 		// use byte array buffer for CString (key-only)
 		std::vector<uint8_t> _strBuffer;

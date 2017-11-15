@@ -71,8 +71,9 @@ namespace LiteCppDB_Console
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
-		WORD mCurrentConsoleAttr;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = CONSOLE_SCREEN_BUFFER_INFO();
+		WORD mCurrentConsoleAttr = 0;
+
 		if (GetConsoleScreenBufferInfo(hConsole, &csbi))
 		{
 			mCurrentConsoleAttr = csbi.wAttributes;

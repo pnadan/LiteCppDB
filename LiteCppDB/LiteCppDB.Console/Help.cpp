@@ -15,7 +15,7 @@ namespace LiteCppDB_Console_Commands
 
 	void Help::Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env)
 	{
-		auto full = s.Match("full");
+		const auto full = s.Match("full");
 
 		if (!full)
 		{

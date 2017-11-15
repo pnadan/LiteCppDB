@@ -42,6 +42,8 @@ namespace LiteCppDB
 
 		void Write(int64_t value);
 
+		void Write(double value);
+
 		void Write(std::vector<uint8_t> value);
 
 #pragma endregion Native data types
@@ -51,6 +53,8 @@ namespace LiteCppDB
 		void Write(std::string value);
 
 		void Write(std::string value, int32_t length);
+
+		void Write(std::chrono::time_point<std::chrono::system_clock> value);
 
 		void Write(PageAddress value);
 

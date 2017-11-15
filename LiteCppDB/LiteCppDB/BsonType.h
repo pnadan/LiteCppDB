@@ -24,18 +24,18 @@ namespace LiteCppDB
 		UInt64 = 8,			// uint64_t (UINT64_MIN, UINT64_MAX)
 
 		String = 9,			// std::string
-		Double = 9,
+		Double = 10,
 
-		Guid = 10,
+		Guid = 11,
 
-		Boolean = 11,		// int64_t
-		DateTime = 12,		// Not implemented
+		Boolean = 12,		// int64_t
+		DateTime = 13,		// Not implemented
 
-		Document = 13,
+		Document = 14,
 
-		MinValue = 14,
-		MaxValue = 15,
+		MinValue = 15,
+		MaxValue = 16,
 
-		ObjectId = 16
+		ObjectId = 17
 	};
 }

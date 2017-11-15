@@ -37,7 +37,7 @@ namespace LiteCppDB
 
 	bool PageAddress::Equals(std::any obj)
 	{
-		auto other = std::any_cast<PageAddress>(obj);
+		const auto other = std::any_cast<PageAddress>(obj);
 		return this->mPageID == other.mPageID && this->mIndex == other.mIndex;
 	}
 
@@ -48,12 +48,14 @@ namespace LiteCppDB
 
 	PageAddress::PageAddress()
 	{
+		this->mIsEmpty = true;
 		this->mPageID = 0;
 		this->mIndex = 0;
 	}
 
 	PageAddress::PageAddress(uint32_t pageID, uint16_t index)
 	{
+		this->mIsEmpty = true;
 		this->mPageID = pageID;
 		this->mIndex = index;
 	}

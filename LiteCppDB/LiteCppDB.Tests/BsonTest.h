@@ -7,6 +7,6 @@ namespace LiteCppDB_Tests
 	class BsonTest
 	{
 	public:
-		LiteCppDB::BsonDocument CreateDoc();
+		LiteCppDB::BsonDocument CreateDoc(std::stringstream& ss);
 	};
 }
