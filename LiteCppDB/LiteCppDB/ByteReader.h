@@ -23,11 +23,11 @@ namespace LiteCppDB
 		uint32_t mPos;
 
 	public:
-		int32_t getPosition();
+		int32_t getPosition() noexcept;
 
 		ByteReader(std::vector<uint8_t> buffer);
 
-		void Skip(int32_t length);
+		void Skip(int32_t length) noexcept;
 
 #pragma region Native data types
 

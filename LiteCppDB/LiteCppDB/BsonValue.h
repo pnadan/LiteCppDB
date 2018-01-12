@@ -28,23 +28,23 @@ namespace LiteCppDB
 		std::any mRawValue;
 		std::map<std::string, BsonValue> mRawValueMap;
 
-		void setType(BsonType type);
+		void setType(BsonType type) noexcept;
 		void setRawValueSuper(std::any rawValue);
 
 	public:
 		LITECPPDB_API static const std::any UnixEpoch;//= std::chrono::system_clock::now() DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
 		// Represent a Null bson type
-		LITECPPDB_API const static BsonValue BsonValue::getNull();
+		LITECPPDB_API const static BsonValue BsonValue::getNull() noexcept;
 
 		// Represent a MinValue bson type
-		LITECPPDB_API static const BsonValue BsonValue::getMinValue();
+		LITECPPDB_API static const BsonValue BsonValue::getMinValue() noexcept;
 
 		// Represent a MaxValue bson type
-		LITECPPDB_API static const BsonValue BsonValue::getMaxValue();
+		LITECPPDB_API static const BsonValue BsonValue::getMaxValue() noexcept;
 
 		// Indicate BsonType of this BsonValue
-		LITECPPDB_API BsonType getType();
+		LITECPPDB_API BsonType getType() noexcept;
 
 		// Get internal .NET value object
 		LITECPPDB_API std::any getRawValueSuper();
@@ -53,7 +53,14 @@ namespace LiteCppDB
 
 #pragma region Constructor
 
-		LITECPPDB_API BsonValue();
+		LITECPPDB_API BsonValue() noexcept;
+		LITECPPDB_API virtual ~BsonValue() noexcept {};
+
+		LITECPPDB_API BsonValue(const BsonValue& src) noexcept;
+		LITECPPDB_API virtual BsonValue& operator=(const BsonValue& rhs) noexcept;
+
+		LITECPPDB_API BsonValue(const BsonValue&& src) noexcept;
+		LITECPPDB_API virtual BsonValue& operator=(BsonValue&& rhs) noexcept;
 
 		LITECPPDB_API BsonValue(std::any &value);
 
@@ -79,15 +86,15 @@ namespace LiteCppDB
 
 		LITECPPDB_API BsonValue(ObjectId value);
 
-		LITECPPDB_API std::any& getValue();
+		LITECPPDB_API virtual std::any& getValue() noexcept;
 
-		LITECPPDB_API bool hasValue();
+		LITECPPDB_API bool hasValue() noexcept;
 
 #pragma endregion Constructor
 
 #pragma region Convert types
 
-		bool AsBoolean();
+		bool AsBoolean() noexcept;
 
 		LITECPPDB_API std::string AsString();
 
@@ -108,29 +115,29 @@ namespace LiteCppDB
 
 #pragma region IsTypes
 
-		LITECPPDB_API bool IsNull() { return (this->mType == LiteCppDB::BsonType::Null); };
+		LITECPPDB_API bool IsNull() noexcept { return (this->mType == LiteCppDB::BsonType::Null); };
 
 		bool IsArray{ false };
 
-		LITECPPDB_API bool IsDocument() { return (this->mType == LiteCppDB::BsonType::Document); }
+		LITECPPDB_API bool IsDocument() noexcept { return (this->mType == LiteCppDB::BsonType::Document); }
 
-		LITECPPDB_API bool IsInt8() { return (this->mType == LiteCppDB::BsonType::Int8); };
+		LITECPPDB_API bool IsInt8() noexcept { return (this->mType == LiteCppDB::BsonType::Int8); };
 
-		LITECPPDB_API bool IsInt16() { return (this->mType == LiteCppDB::BsonType::Int16); };
+		LITECPPDB_API bool IsInt16() noexcept { return (this->mType == LiteCppDB::BsonType::Int16); };
 
-		LITECPPDB_API bool IsInt32() { return (this->mType == LiteCppDB::BsonType::Int32); };
+		LITECPPDB_API bool IsInt32() noexcept { return (this->mType == LiteCppDB::BsonType::Int32); };
 
-		LITECPPDB_API bool IsInt64() { return (this->mType == LiteCppDB::BsonType::Int64); };
+		LITECPPDB_API bool IsInt64() noexcept { return (this->mType == LiteCppDB::BsonType::Int64); };
 
-		LITECPPDB_API bool IsUInt8() { return (this->mType == LiteCppDB::BsonType::UInt8); };
+		LITECPPDB_API bool IsUInt8() noexcept { return (this->mType == LiteCppDB::BsonType::UInt8); };
 
-		LITECPPDB_API bool IsUInt16() { return (this->mType == LiteCppDB::BsonType::UInt16); };
+		LITECPPDB_API bool IsUInt16() noexcept { return (this->mType == LiteCppDB::BsonType::UInt16); };
 
-		LITECPPDB_API bool IsUInt32() { return (this->mType == LiteCppDB::BsonType::UInt32); };
+		LITECPPDB_API bool IsUInt32() noexcept { return (this->mType == LiteCppDB::BsonType::UInt32); };
 
-		LITECPPDB_API bool IsUInt64() { return (this->mType == LiteCppDB::BsonType::UInt64); };
+		LITECPPDB_API bool IsUInt64() noexcept { return (this->mType == LiteCppDB::BsonType::UInt64); };
 
-		LITECPPDB_API bool IsDouble() { return (this->mType == LiteCppDB::BsonType::Double); };
+		LITECPPDB_API bool IsDouble() noexcept { return (this->mType == LiteCppDB::BsonType::Double); };
 
 		bool IsDecimal{ false };
 
@@ -138,19 +145,19 @@ namespace LiteCppDB
 
 		bool IsBinary{ false };
 
-		LITECPPDB_API bool IsBoolean() { return (this->mType == LiteCppDB::BsonType::Boolean); };
+		LITECPPDB_API bool IsBoolean() noexcept { return (this->mType == LiteCppDB::BsonType::Boolean); };
 
-		LITECPPDB_API bool IsString() { return (this->mType == LiteCppDB::BsonType::String); };
+		LITECPPDB_API bool IsString() noexcept { return (this->mType == LiteCppDB::BsonType::String); };
 
-		LITECPPDB_API bool IsObjectId() { return (this->mType == LiteCppDB::BsonType::ObjectId); };
+		LITECPPDB_API bool IsObjectId() noexcept { return (this->mType == LiteCppDB::BsonType::ObjectId); };
 
-		LITECPPDB_API bool IsGuid() { return (this->mType == LiteCppDB::BsonType::Guid); };
+		LITECPPDB_API bool IsGuid() noexcept { return (this->mType == LiteCppDB::BsonType::Guid); };
 
-		LITECPPDB_API bool IsDateTime() { return (this->mType == LiteCppDB::BsonType::DateTime); };
+		LITECPPDB_API bool IsDateTime() noexcept { return (this->mType == LiteCppDB::BsonType::DateTime); };
 
-		LITECPPDB_API bool IsMinValue() { return (this->mType == LiteCppDB::BsonType::MinValue); };
+		LITECPPDB_API bool IsMinValue() noexcept { return (this->mType == LiteCppDB::BsonType::MinValue); };
 
-		LITECPPDB_API bool IsMaxValue() { return (this->mType == LiteCppDB::BsonType::MaxValue); };
+		LITECPPDB_API bool IsMaxValue() noexcept { return (this->mType == LiteCppDB::BsonType::MaxValue); };
 
 #pragma endregion IsTypes
 
@@ -164,16 +171,16 @@ namespace LiteCppDB
 
 #pragma region IComparable<BsonValue>, IEquatable<BsonValue>
 
-		LITECPPDB_API virtual int CompareTo(BsonValue other);
+		LITECPPDB_API virtual int CompareTo(BsonValue other) noexcept;
 
-		bool Equals(BsonValue other);
+		bool Equals(BsonValue other) noexcept;
 
 #pragma endregion IComparable<BsonValue>, IEquatable<BsonValue>
 
 #pragma region Operators
 
 		//static bool operator ==(BsonValue lhs, BsonValue rhs);
-		friend bool operator ==(const BsonValue& lhs, const BsonValue& rhs);
+		friend bool operator ==(const BsonValue& lhs, const BsonValue& rhs) noexcept;
 
 		//bool operator ==(const std::any& lhs, const std::any& rhs) const {return lhs == rhs};
 		//bool operator ==(const std::any& rhs) const { return this->mRawValue == rhs };

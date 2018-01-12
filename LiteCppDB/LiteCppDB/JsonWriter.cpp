@@ -1,23 +1,24 @@
 #include "stdafx.h"
 
 #include "JsonWriter.h"
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
-	bool JsonWriter::getPretty()
+	bool JsonWriter::getPretty() noexcept
 	{
 		return this->mPretty;
 	}
-	void JsonWriter::setPretty(bool pretty)
+	void JsonWriter::setPretty(bool pretty) noexcept
 	{
 		this->mPretty = pretty;
 	}
 
-	bool JsonWriter::getWriteBinary()
+	bool JsonWriter::getWriteBinary() noexcept
 	{
 		return this->mWriteBinary;
 	}
-	void JsonWriter::setWriteBinary(bool writeBinary)
+	void JsonWriter::setWriteBinary(bool writeBinary) noexcept
 	{
 		this->mWriteBinary = writeBinary;
 	}
@@ -92,7 +93,7 @@ namespace LiteCppDB
 	void JsonWriter::WriteObject(BsonDocument obj)
 	{
 		auto length = obj.getKeys().size();
-		auto hasData = length > 0;
+		const auto hasData = length > 0;
 
 		this->WriteStartBlock("{", hasData);
 
@@ -102,7 +103,7 @@ namespace LiteCppDB
 		{
 			std::string objBsonDocument = *_begin;
 
-			this->WriteKeyValue(objBsonDocument, obj.TryGetValue(objBsonDocument), index++ < static_cast<int>(length) - 1);
+			this->WriteKeyValue(objBsonDocument, obj.TryGetValue(objBsonDocument), index++ < gsl::narrow_cast<int32_t>(length) - 1);
 		}
 
 		this->WriteEndBlock("}", hasData);
@@ -110,7 +111,7 @@ namespace LiteCppDB
 
 	void JsonWriter::WriteArray(BsonArray arr)
 	{
-		auto hasData = arr.getCount() > 0;
+		const auto hasData = arr.getCount() > 0;
 
 		this->WriteStartBlock("[", hasData);
 
@@ -176,7 +177,7 @@ namespace LiteCppDB
 				break;
 
 			default:
-				int i = static_cast<int>(c);
+				const int i = gsl::narrow_cast<int32_t>(c);
 				if (i < 32 || i > 127)
 				{
 					*(_writer) << "\\u";

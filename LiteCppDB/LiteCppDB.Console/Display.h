@@ -12,10 +12,10 @@ namespace LiteCppDB_Console
 	class Display
 	{
 	public:
-		bool getPretty();
-		void setPretty(bool bPretty);
+		bool getPretty() noexcept;
+		void setPretty(bool bPretty) noexcept;
 
-		Display();
+		Display() noexcept;
 
 		void WriteWelcome();
 

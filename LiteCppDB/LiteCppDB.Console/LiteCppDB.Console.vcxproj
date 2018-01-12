@@ -232,6 +232,7 @@
     <ClCompile Include="Find.cpp" />
     <ClCompile Include="FindStorage.cpp" />
     <ClCompile Include="Help.cpp" />
+    <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="Indexes.cpp" />
     <ClCompile Include="InputCommand.cpp" />
     <ClCompile Include="Insert.cpp" />

@@ -17,8 +17,8 @@ namespace LiteCppDB
 
 	public:
 		// If member is Id, indicate that are AutoId
-		bool getAutoId();
-		void setAutoId(bool autoId);
+		bool getAutoId() noexcept;
+		void setAutoId(bool autoId) noexcept;
 
 		// Member name
 		std::string getMemberName();

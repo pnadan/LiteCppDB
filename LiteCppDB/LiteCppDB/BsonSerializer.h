@@ -16,8 +16,8 @@ namespace LiteCppDB
 	class BsonSerializer
 	{
 	public:
-		LITECPPDB_API static std::vector<uint8_t> Serialize(BsonDocument& doc);
+		LITECPPDB_API static std::vector<uint8_t> Serialize(const BsonDocument& doc);
 
-		LITECPPDB_API static BsonDocument Deserialize(std::vector<uint8_t>& bson);
+		LITECPPDB_API static BsonDocument Deserialize(const std::vector<uint8_t>& bson);
 	};
 }

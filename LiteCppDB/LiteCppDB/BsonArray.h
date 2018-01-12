@@ -12,37 +12,44 @@ namespace LiteCppDB
 		std::vector<BsonValue> mBsonArray;
 
 	public:
-		BsonArray();
+		BsonArray() noexcept;
+		virtual ~BsonArray() noexcept {};
+
+		BsonArray(const BsonArray& src) noexcept;
+		virtual BsonArray& operator=(const BsonArray& rhs) noexcept;
+
+		BsonArray(const BsonArray&& src) noexcept;
+		virtual BsonArray& operator=(BsonArray&& rhs) noexcept;
 
 		BsonArray(std::vector<BsonValue> array);
 
-		std::vector<BsonValue> getValue();
+		std::vector<BsonValue> getValue() const;
 
 		BsonValue getValueAt(int32_t index);
-		void setValueAt(int32_t index, BsonValue& value);
+		void setValueAt(int32_t index, const BsonValue& value);
 
 		int32_t getCount();
 
-		bool getIsReadOnly();
+		bool getIsReadOnly() noexcept;
 
 		void Add(BsonValue item);
 
 		void AddRange(std::vector<BsonValue> array);
 
-		void Clear();
+		void Clear() noexcept;
 
-		bool Contains(BsonValue item);
+		bool Contains(BsonValue item) noexcept;
 
 		void CopyTo(std::vector<BsonValue> array, int32_t arrayIndex);
 
-		int32_t IndexOf(BsonValue item);
+		int32_t IndexOf(BsonValue item) noexcept;
 
-		void Insert(int32_t index, BsonValue item);
+		void Insert(int32_t index, BsonValue item) noexcept;
 
-		bool Remove(BsonValue item);
+		bool Remove(BsonValue item) noexcept;
 
-		void RemoveAt(int32_t index);
+		void RemoveAt(int32_t index) noexcept;
 
-		int32_t CompareTo(BsonValue other) override;
+		int32_t CompareTo(BsonValue other) noexcept override;
 	};
 }

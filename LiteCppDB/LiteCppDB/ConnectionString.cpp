@@ -22,11 +22,11 @@ namespace LiteCppDB
 	}
 
 	// "journal": Enabled or disable double write check to ensure durability (default: true)
-	bool ConnectionString::getJournal()
+	bool ConnectionString::getJournal() noexcept
 	{
 		return this->mJournal;
 	}
-	void ConnectionString::setJournal(bool journal)
+	void ConnectionString::setJournal(bool journal) noexcept
 	{
 		this->mJournal = journal;
 	}
@@ -42,67 +42,67 @@ namespace LiteCppDB
 	}
 
 	// "cache size": Max number of pages in cache. After this size, flush data to disk to avoid too memory usage (default: 5000)
-	int ConnectionString::getCacheSize()
+	int ConnectionString::getCacheSize() noexcept
 	{
 		return this->mCacheSize;
 	}
-	void ConnectionString::setCacheSize(int32_t cacheSize)
+	void ConnectionString::setCacheSize(int32_t cacheSize) noexcept
 	{
 		this->mCacheSize = cacheSize;
 	}
 
 	// "initial size": If database is new, initialize with allocated space - support KB, MB, GB (default: null)
-	int64_t ConnectionString::getInitialSize()
+	int64_t ConnectionString::getInitialSize() noexcept
 	{
 		return this->mInitialSize;
 	}
-	void ConnectionString::setInitialSize(int64_t initialSize)
+	void ConnectionString::setInitialSize(int64_t initialSize) noexcept
 	{
 		this->mInitialSize = initialSize;
 	}
 
 	// "limit size": Max limit of datafile - support KB, MB, GB (default: null)
-	int64_t ConnectionString::getLimitSize()
+	int64_t ConnectionString::getLimitSize() noexcept
 	{
 		return this->mLimitSize;
 	}
-	void ConnectionString::setLimitSize(int64_t limitSize)
+	void ConnectionString::setLimitSize(int64_t limitSize) noexcept
 	{
 		this->mLimitSize = limitSize;
 	}
 
 	// "log": Debug messages from database - use `LiteDatabase.Log` (default: Logger.NONE)
-	uint8_t ConnectionString::getLog()
+	uint8_t ConnectionString::getLog() noexcept
 	{
 		return this->mLog;
 	}
-	void ConnectionString::setLog(uint8_t log)
+	void ConnectionString::setLog(uint8_t log) noexcept
 	{
 		this->mLog = log;
 	}
 
 	// "upgrade": Test if database is in old version and update if needed (default: false)
-	bool ConnectionString::getUpgrade()
+	bool ConnectionString::getUpgrade() noexcept
 	{
 		return this->mUpgrade;
 	}
-	void ConnectionString::setUpgrade(bool upgrade)
+	void ConnectionString::setUpgrade(bool upgrade) noexcept
 	{
 		this->mUpgrade = upgrade;
 	}
 
 	// "async": Use "sync over async" to UWP apps access any directory
-	bool ConnectionString::getAsync()
+	bool ConnectionString::getAsync() noexcept
 	{
 		return this->mAsync;
 	}
-	void ConnectionString::setAsync(bool async)
+	void ConnectionString::setAsync(bool async) noexcept
 	{
 		this->mAsync = async;
 	}
 
 	// Initialize empty connection string
-	ConnectionString::ConnectionString()
+	ConnectionString::ConnectionString() noexcept
 	{
 		this->mCacheSize = 0;
 		this->mUpgrade = 0;
@@ -118,6 +118,70 @@ namespace LiteCppDB
 	ConnectionString::~ConnectionString()
 	{
 
+	}
+
+	ConnectionString::ConnectionString(const ConnectionString& src) noexcept
+	{
+		this->mCacheSize = src.mCacheSize;
+		this->mUpgrade = src.mUpgrade;
+		this->mInitialSize = src.mInitialSize;
+		this->mLog = src.mLog;
+		this->mJournal = src.mJournal;
+		this->mAsync = src.mAsync;
+		this->mFilename = src.mFilename;
+		this->mPassword = src.mPassword;
+		this->mLimitSize = src.mLimitSize;
+	}
+
+	ConnectionString& ConnectionString::operator=(const ConnectionString& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mCacheSize = rhs.mCacheSize;
+		this->mUpgrade = rhs.mUpgrade;
+		this->mInitialSize = rhs.mInitialSize;
+		this->mLog = rhs.mLog;
+		this->mJournal = rhs.mJournal;
+		this->mAsync = rhs.mAsync;
+		this->mFilename = rhs.mFilename;
+		this->mPassword = rhs.mPassword;
+		this->mLimitSize = rhs.mLimitSize;
+		return *this;
+	}
+
+	ConnectionString::ConnectionString(const ConnectionString&& src) noexcept
+	{
+		this->mCacheSize = src.mCacheSize;
+		this->mUpgrade = src.mUpgrade;
+		this->mInitialSize = src.mInitialSize;
+		this->mLog = src.mLog;
+		this->mJournal = src.mJournal;
+		this->mAsync = src.mAsync;
+		this->mFilename = src.mFilename;
+		this->mPassword = src.mPassword;
+		this->mLimitSize = src.mLimitSize;
+	}
+
+	ConnectionString& ConnectionString::operator=(ConnectionString&& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mCacheSize = rhs.mCacheSize;
+		this->mUpgrade = rhs.mUpgrade;
+		this->mInitialSize = rhs.mInitialSize;
+		this->mLog = rhs.mLog;
+		this->mJournal = rhs.mJournal;
+		this->mAsync = rhs.mAsync;
+		this->mFilename = rhs.mFilename;
+		this->mPassword = rhs.mPassword;
+		this->mLimitSize = rhs.mLimitSize;
+		return *this;
 	}
 
 	// Initialize connection string parsing string in "key1=value1;key2=value2;...." format or only "filename" as default (when no ; char found)

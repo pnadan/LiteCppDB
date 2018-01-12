@@ -6,17 +6,18 @@
 #include <sstream>
 #include <chrono>
 #include <memory>
+#include <gsl\gsl>
 
 using namespace std;
 
 namespace LiteCppDB
 {
 	// Indicate BsonType of this BsonValue
-	BsonType BsonValue::getType()
+	BsonType BsonValue::getType() noexcept
 	{
 		return this->mType;
 	}
-	void BsonValue::setType(BsonType type)
+	void BsonValue::setType(BsonType type) noexcept
 	{
 		this->mType = type;
 	}
@@ -41,26 +42,70 @@ namespace LiteCppDB
 		this->mRawValueMap = rawValue;
 	}
 
-	LITECPPDB_API const BsonValue BsonValue::getNull()
+	LITECPPDB_API const BsonValue BsonValue::getNull() noexcept
 	{
 		return BsonValue();
 	}
 
-	LITECPPDB_API const BsonValue BsonValue::getMinValue()
+	LITECPPDB_API const BsonValue BsonValue::getMinValue() noexcept
 	{
 		return BsonValue();
 	}
 
-	LITECPPDB_API const BsonValue BsonValue::getMaxValue()
+	LITECPPDB_API const BsonValue BsonValue::getMaxValue() noexcept
 	{
 		return BsonValue();
 	}
 
 #pragma region Constructor
 
-	BsonValue::BsonValue()
+	BsonValue::BsonValue() noexcept
 	{
 		this->mRawValue = nullptr;
+	}
+
+	BsonValue::BsonValue(const BsonValue& src) noexcept
+	{
+		this->mLength = src.mLength;
+		this->mRawValue = src.mRawValue;
+		this->mRawValueMap = src.mRawValueMap;
+		this->mType = src.mType;
+	}
+
+	BsonValue& BsonValue::operator=(const BsonValue& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mLength = rhs.mLength;
+		this->mRawValue = rhs.mRawValue;
+		this->mRawValueMap = rhs.mRawValueMap;
+		this->mType = rhs.mType;
+		return *this;
+	}
+
+	BsonValue::BsonValue(const BsonValue&& src) noexcept
+	{
+		this->mLength = src.mLength;
+		this->mRawValue = src.mRawValue;
+		this->mRawValueMap = src.mRawValueMap;
+		this->mType = src.mType;
+	}
+
+	BsonValue& BsonValue::operator=(BsonValue&& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mLength = rhs.mLength;
+		this->mRawValue = rhs.mRawValue;
+		this->mRawValueMap = rhs.mRawValueMap;
+		this->mType = rhs.mType;
+		return *this;
 	}
 
 	BsonValue::BsonValue(std::any &value)
@@ -205,12 +250,12 @@ namespace LiteCppDB
 		this->mRawValue = value;
 	}
 
-	std::any& BsonValue::getValue()
+	std::any& BsonValue::getValue() noexcept
 	{
 		return this->mRawValue;
 	}
 
-	bool BsonValue::hasValue()
+	bool BsonValue::hasValue() noexcept
 	{
 		return this->mRawValue.has_value();
 	}
@@ -219,7 +264,7 @@ namespace LiteCppDB
 
 	#pragma region Convert types
 
-	bool BsonValue::AsBoolean()
+	bool BsonValue::AsBoolean() noexcept
 	{
 		return false;
 	}
@@ -254,7 +299,7 @@ namespace LiteCppDB
 	{
 		if (this->mType != BsonType::Int32)
 		{
-			return int32_t(0);
+			return 0;
 		}
 		else
 		{
@@ -266,7 +311,7 @@ namespace LiteCppDB
 	{
 		if (this->mType != BsonType::Int64)
 		{
-			return int64_t(0);
+			return 0;
 		}
 		else
 		{
@@ -278,7 +323,7 @@ namespace LiteCppDB
 	{
 		if (this->mType != BsonType::UInt64)
 		{
-			return uint64_t(0);
+			return 0;
 		}
 		else
 		{
@@ -290,7 +335,7 @@ namespace LiteCppDB
 	{
 		if (this->mType != BsonType::Double)
 		{
-			return double(0);
+			return 0;
 		}
 		else
 		{
@@ -330,22 +375,22 @@ namespace LiteCppDB
 
 #pragma endregion Convert types
 	
-	int BsonValue::CompareTo(BsonValue other)
+	int BsonValue::CompareTo(BsonValue other) noexcept
 	{
 		return 0;
 	}
 
-	bool BsonValue::Equals(BsonValue other)
+	bool BsonValue::Equals(BsonValue other) noexcept
 	{
 		return false;
 	}
 
-	void BsonValue::operator==(const std::string value)
-	{
-		//TODO
-	}
+	//void BsonValue::operator==(const std::string value) noexcept
+	//{
+	//	//TODO
+	//}
 
-	bool operator ==(const BsonValue& lhs, const BsonValue& rhs)
+	bool operator ==(const BsonValue& lhs, const BsonValue& rhs) noexcept
 	{
 		//TODO
 		return false;
@@ -365,7 +410,7 @@ namespace LiteCppDB
 			case BsonType::Int16: this->mLength = 2; break;
 			case BsonType::Int32: this->mLength = 4; break;
 			case BsonType::Int64: this->mLength = 8; break;
-			case BsonType::Double: this->mLength = 8 + static_cast<int32_t>(std::to_string((this->AsDouble())).length()); break;
+			case BsonType::Double: this->mLength = 8 + gsl::narrow_cast<int32_t>(std::to_string((this->AsDouble())).length()); break;
 			case BsonType::String:
 				this->mLength = GetBytesInString(std::any_cast<std::string>(this->getValue()));
 				break;

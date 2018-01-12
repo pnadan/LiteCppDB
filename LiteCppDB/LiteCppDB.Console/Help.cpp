@@ -3,17 +3,17 @@
 
 namespace LiteCppDB_Console_Commands
 {
-	DataAccess Help::getAccess()
+	DataAccess Help::getAccess() noexcept
 	{
 		return DataAccess::None;
 	}
 
-	bool Help::IsCommand(LiteCppDB::StringScanner& s)
+	bool Help::IsCommand(LiteCppDB::StringScanner& s) noexcept
 	{
 		return s.Scan("help[[:s:]]*").length() > 0;
 	}
 
-	void Help::Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env)
+	void Help::Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env) noexcept
 	{
 		const auto full = s.Match("full");
 

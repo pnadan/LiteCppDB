@@ -5,21 +5,21 @@
 namespace LiteCppDB
 {
 	// Position of this dataBlock inside a page (store only Position.Index)
-	PageAddress DataBlock::getPosition()
+	PageAddress DataBlock::getPosition() noexcept
 	{
 		return this->mPosition;
 	}
-	void DataBlock::setPosition(PageAddress position)
+	void DataBlock::setPosition(PageAddress position) noexcept
 	{
 		this->mPosition = position;
 	}
 
 	// If object is bigger than this page - use a ExtendPage (and do not use Data array)
-	uint32_t DataBlock::getExtendPageID()
+	uint32_t DataBlock::getExtendPageID() noexcept
 	{
 		return this->mExtendPageID;
 	}
-	void DataBlock::setExtendPageID(uint32_t extendPageID)
+	void DataBlock::setExtendPageID(uint32_t extendPageID) noexcept
 	{
 		this->mExtendPageID = extendPageID;
 	}
@@ -40,7 +40,7 @@ namespace LiteCppDB
 		return DataBlock::DATA_BLOCK_FIXED_SIZE + std::any_cast<int32_t>(this->getData().size());
 	}
 
-	DataBlock::DataBlock()
+	DataBlock::DataBlock() noexcept
 	{
 		this->mLength = 0;
 		this->mPosition = PageAddress::getEmpty();

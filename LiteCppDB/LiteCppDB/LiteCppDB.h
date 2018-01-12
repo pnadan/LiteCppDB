@@ -29,13 +29,13 @@ namespace MathLibrary
 	{
 	public:
 		// Returns a + b  
-		LITECPPDB_API double Add(double a, double b);
+		LITECPPDB_API double Add(double a, double b) noexcept;
 
 		// Returns a * b  
-		LITECPPDB_API double Multiply(double a, double b);
+		LITECPPDB_API double Multiply(double a, double b) noexcept;
 
 		// Returns a + (a * b)  
 		/*static MATHLIBRARY_API*/ 
-		LITECPPDB_API double AddMultiply(double a, double b);
+		LITECPPDB_API double AddMultiply(double a, double b) noexcept;
 	};
 }

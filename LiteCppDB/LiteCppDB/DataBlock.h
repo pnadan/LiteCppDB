@@ -22,12 +22,12 @@ namespace LiteCppDB
 											2; // block.Data.Length (ushort)
 
 		// Position of this dataBlock inside a page (store only Position.Index)
-		PageAddress getPosition();
-		void setPosition(PageAddress position);
+		PageAddress getPosition() noexcept;
+		void setPosition(PageAddress position) noexcept;
 
 		// If object is bigger than this page - use a ExtendPage (and do not use Data array)
-		uint32_t getExtendPageID();
-		void setExtendPageID(uint32_t extendPageID);
+		uint32_t getExtendPageID() noexcept;
+		void setExtendPageID(uint32_t extendPageID) noexcept;
 
 		// Data of a record - could be empty if is used in ExtedPage
 		std::vector<uint8_t> getData();
@@ -36,6 +36,6 @@ namespace LiteCppDB
 		// Get length of this dataBlock (persist as ushort 2 bytes)
 		int32_t getLength();
 
-		DataBlock();
+		DataBlock() noexcept;
 	};
 }

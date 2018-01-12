@@ -13,11 +13,11 @@ namespace LiteCppDB
 		this->mSource = source;
 	}
 
-	size_t StringScanner::getIndex()
+	size_t StringScanner::getIndex() noexcept
 	{
 		return this->mIndex;
 	}
-	void StringScanner::setIndex(size_t index)
+	void StringScanner::setIndex(size_t index) noexcept
 	{
 		this->mIndex = index;
 	}
@@ -35,19 +35,19 @@ namespace LiteCppDB
 	}
 
 	// Reset cursor position
-	void StringScanner::Reset()
+	void StringScanner::Reset() noexcept
 	{
 		this->mIndex = 0;
 	}
 
 	// Skip cursor position in string source
-	void StringScanner::Seek(int length)
+	void StringScanner::Seek(int length) noexcept
 	{
 		this->mIndex += length;
 	}
 
 	// Indicate that cursor is EOF
-	bool StringScanner::HasTerminated()
+	bool StringScanner::HasTerminated() noexcept
 	{
 		if (this->mIndex >= this->mSource.length())
 		{

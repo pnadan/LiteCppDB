@@ -20,6 +20,17 @@ namespace LiteCppDB
 {
 	class BasePage
 	{
+	private:
+
+		uint32_t mPageID;
+		PageType mPageType;
+		uint32_t mPrevPageID;
+		uint32_t mNextPageID;
+		int32_t mItemCount;
+		int32_t mFreeBytes;
+		bool mIsDirty;
+		std::vector<uint8_t> mDiskData;
+
 	public:
 #pragma region Page Constants
 
@@ -35,45 +46,57 @@ namespace LiteCppDB
 #pragma endregion Page Constants
 
 		// Represent page number - start in 0 with HeaderPage [4 bytes]
-		uint32_t getPageID();
-		void setPageID(uint32_t pageID);
+		uint32_t getPageID() noexcept;
+		void setPageID(uint32_t pageID) noexcept;
 
 		// Indicate the page type [1 byte] - Must be implemented for each page type
-		virtual PageType getPageType();
+		virtual PageType getPageType() noexcept;
 
 		// Represent the previous page. Used for page-sequences - MaxValue represent that has NO previous page [4 bytes]
-		uint32_t getPrevPageID();
-		void setPrevPageID(uint32_t prevPageID);
+		uint32_t getPrevPageID() noexcept;
+		void setPrevPageID(uint32_t prevPageID) noexcept;
 
 		//// Represent the next page. Used for page-sequences - MaxValue represent that has NO next page [4 bytes]
-		uint32_t getNextPageID();
-		void setNextPageID(uint32_t nextPageID);
+		uint32_t getNextPageID() noexcept;
+		void setNextPageID(uint32_t nextPageID) noexcept;
 
 		//// Used for all pages to count items inside this page(bytes, nodes, blocks, ...) [2 bytes]
 		//// Its Int32 but writes in UInt16
-		int32_t getItemCount();
-		void setItemCount(int32_t itemCount);
+		int32_t getItemCount() noexcept;
+		void setItemCount(int32_t itemCount) noexcept;
 
 		//// Used to find a free page using only header search [used in FreeList] [2 bytes]
 		//// Its Int32 but writes in UInt16
 		//// Its updated when a page modify content length (add/remove items)
-		int32_t getFreeBytes();
-		void setFreeBytes(int32_t freeBytes);
+		int32_t getFreeBytes() noexcept;
+		void setFreeBytes(int32_t freeBytes) noexcept;
 
 		//// Indicate that this page is dirty (was modified) and must persist when committed [not-persistable]
-		bool getIsDirty();
-		void getIsDirty(bool isDirty);
+		bool getIsDirty() noexcept;
+		void getIsDirty(bool isDirty) noexcept;
 
 		//// This is the data when read first from disk - used to journal operations (IDiskService only will use)
 		std::vector<uint8_t> getDiskData();
 		void setDiskData(std::vector<uint8_t> diskData);
 
-		BasePage();
+		BasePage() noexcept;
+		virtual ~BasePage() {};
+
+		// Copy constructor.
+		BasePage(const BasePage& src) noexcept;
+		// Move assigment.
+		virtual BasePage& operator=(const BasePage& rhs) noexcept;
+
+		// Move constructor.
+		BasePage(const BasePage&& src) noexcept;
+		// Move assigment.
+		virtual BasePage& operator=(BasePage&& rhs) noexcept;
+		
 		BasePage(uint32_t pageID);
 
 		//// Every page must implement this ItemCount + FreeBytes
 		//// Must be called after Items are updates (insert/deletes) to keep variables ItemCount and FreeBytes synced
-		virtual void UpdateItemCount();
+		virtual void UpdateItemCount() noexcept;
 
 		//// Returns a size of specified number of pages
 		static int64_t GetSizeOfPages(uint32_t pageCount);
@@ -99,22 +122,10 @@ namespace LiteCppDB
 		void WriteHeader(ByteWriter writer);
 
 	protected:
+		virtual void ReadContent(ByteReader reader) noexcept;
 
-		virtual void ReadContent(ByteReader reader);
-
-		virtual void WriteContent(ByteWriter writer);
+		virtual void WriteContent(ByteWriter writer) noexcept;
 
 #pragma endregion
-
-	private:
-
-		uint32_t mPageID;
-		PageType mPageType;
-		uint32_t mPrevPageID;
-		uint32_t mNextPageID;
-		int32_t mItemCount;
-		int32_t mFreeBytes;
-		bool mIsDirty;
-		std::vector<uint8_t> mDiskData;
 	};
 }

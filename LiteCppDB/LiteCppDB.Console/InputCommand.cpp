@@ -6,7 +6,7 @@
 
 namespace LiteCppDB_Console
 {
-	InputCommand::InputCommand()
+	InputCommand::InputCommand() noexcept
 	{
 		this->mRunning = true;
 	}
@@ -16,11 +16,45 @@ namespace LiteCppDB_Console
 
 	}
 
-	bool InputCommand::getRunning()
+	InputCommand::InputCommand(const InputCommand& src) noexcept
+	{
+		this->mRunning = src.mRunning;
+	}
+
+	InputCommand& InputCommand::operator=(const InputCommand& rhs) noexcept
+	{
+		// TODO: insert return statement here
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mRunning = rhs.mRunning;
+		return *this;
+	}
+
+	InputCommand::InputCommand(const InputCommand&& src) noexcept
+	{
+		this->mRunning = src.mRunning;
+	}
+
+	InputCommand& InputCommand::operator=(InputCommand&& rhs) noexcept
+	{
+		// TODO: insert return statement here
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mRunning = rhs.mRunning;
+		return *this;
+	}
+
+	bool InputCommand::getRunning() noexcept
 	{
 		return this->mRunning;
 	}
-	void InputCommand::setRunning(bool running)
+	void InputCommand::setRunning(bool running) noexcept
 	{
 		this->mRunning = running;
 	}

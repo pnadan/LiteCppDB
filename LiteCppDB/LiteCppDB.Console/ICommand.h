@@ -13,10 +13,19 @@ namespace LiteCppDB_Console
 	class ICommand
 	{
 	public:
-		virtual DataAccess getAccess() { return DataAccess::None; };
+		ICommand() noexcept {};
+		virtual ~ICommand() {};
 
-		virtual bool IsCommand(LiteCppDB::StringScanner& s) { return false; };
+		ICommand(const ICommand& src) noexcept;
+		virtual ICommand& operator=(const ICommand& rhs) noexcept;
 
-		virtual void Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, Display display, InputCommand input, LiteCppDB_Console::Env env) {};
+		ICommand(const ICommand&& src) noexcept;
+		virtual ICommand& operator=(ICommand&& rhs) noexcept;
+
+		virtual DataAccess getAccess() noexcept { return DataAccess::None; };
+
+		virtual bool IsCommand(LiteCppDB::StringScanner& s) noexcept { return false; };
+
+		virtual void Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, Display display, InputCommand input, LiteCppDB_Console::Env env) noexcept {};
 	};
 }

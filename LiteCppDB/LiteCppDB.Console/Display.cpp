@@ -6,16 +6,16 @@
 
 namespace LiteCppDB_Console
 {
-	bool Display::getPretty()
+	bool Display::getPretty() noexcept
 	{
 		return mPretty;
 	}
-	void Display::setPretty(bool bPretty)
+	void Display::setPretty(bool bPretty) noexcept
 	{
 		mPretty = bPretty;
 	}
 
-	Display::Display()
+	Display::Display() noexcept
 	{
 		mPretty = false;
 	}

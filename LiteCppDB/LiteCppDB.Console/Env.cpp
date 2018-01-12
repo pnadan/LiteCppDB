@@ -5,16 +5,16 @@
 
 namespace LiteCppDB_Console
 {
-	LiteCppDB::ConnectionString Env::getConnectionString()
+	LiteCppDB::ConnectionString Env::getConnectionString() noexcept
 	{
 		return this->mConnectionString;
 	}
-	void Env::setConnectionString(LiteCppDB::ConnectionString connectionString)
+	void Env::setConnectionString(LiteCppDB::ConnectionString connectionString) noexcept
 	{
 		this->mConnectionString = connectionString;
 	}
 
-	Env::Env()
+	Env::Env() noexcept
 	{
 	}
 

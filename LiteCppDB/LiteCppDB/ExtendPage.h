@@ -13,23 +13,23 @@ namespace LiteCppDB
 
 	public:
 		// Page type = Extend
-		PageType getPageType() override;
+		PageType getPageType() noexcept override;
 
 		// Represent the part or full of the object - if this page has NextPageID the object is bigger than this page
-		std::vector<uint8_t> getData();
+		std::vector<uint8_t> getData()  noexcept;
 		void setData(std::vector<uint8_t> data);
 
 		ExtendPage(uint32_t pageID);
 
 		// Update freebytes + items count
-		void UpdateItemCount() override;
+		void UpdateItemCount() noexcept override;
 
 #pragma region Read / Write pages
 
 	protected:
-		void ReadContent(ByteReader reader) override;
+		void ReadContent(ByteReader reader) noexcept override;
 
-		void WriteContent(ByteWriter writer) override;
+		void WriteContent(ByteWriter writer) noexcept override;
 
 #pragma endregion
 	};

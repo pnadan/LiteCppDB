@@ -291,9 +291,6 @@
     <ClInclude Include="CollectionEngine.h">
       <Filter>Header Files\Engine\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="EngineAggregateEngine.h">
-      <Filter>Header Files\Engine\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="FindEngine.h">
       <Filter>Header Files\Engine\Engine</Filter>
     </ClInclude>
@@ -492,9 +489,6 @@
     <ClInclude Include="LiteTransaction.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="LockControl.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="LockState.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
@@ -506,6 +500,12 @@
     </ClInclude>
     <ClInclude Include="StorageUnitHelper.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="AggregateEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteEngine.h">
+      <Filter>Header Files\Engine\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -857,9 +857,6 @@
     <ClCompile Include="LiteTransaction.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="LockControl.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="LockState.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -871,6 +868,9 @@
     </ClCompile>
     <ClCompile Include="StorageUnitHelper.cpp">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteEngine.cpp">
+      <Filter>Source Files\Engine\Engine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

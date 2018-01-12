@@ -16,13 +16,13 @@ namespace LiteCppDB
 	public:
 		std::vector<uint8_t> getBuffer();
 
-		int32_t getPosition();
+		int32_t getPosition() noexcept;
 
 		ByteWriter(int32_t length);
 
 		ByteWriter(std::vector<uint8_t> buffer);
 
-		void Skip(int32_t length);
+		void Skip(int32_t length) noexcept;
 
 #pragma region Native data types
 
@@ -54,7 +54,7 @@ namespace LiteCppDB
 
 		void Write(std::string value, int32_t length);
 
-		void Write(std::chrono::time_point<std::chrono::system_clock> value);
+		void Write(std::chrono::time_point<std::chrono::system_clock> value) noexcept;
 
 		void Write(PageAddress value);
 

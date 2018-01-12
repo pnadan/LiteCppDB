@@ -5,12 +5,12 @@
 namespace LiteCppDB
 {
 	/// Page type = Empty
-	PageType EmptyPage::getPageType()
+	PageType EmptyPage::getPageType() noexcept
 	{
 		return PageType::Empty;
 	}
 
-	EmptyPage::EmptyPage(uint32_t pageID) /*: setPageID(pageID)*/
+	EmptyPage::EmptyPage(uint32_t pageID) noexcept /*: setPageID(pageID)*/
 	{
 		this->setItemCount(0);
 		this->setFreeBytes(PAGE_AVAILABLE_BYTES);
@@ -25,7 +25,7 @@ namespace LiteCppDB
 	}
 
 	/// Update freebytes + items count
-	void EmptyPage::UpdateItemCount()
+	void EmptyPage::UpdateItemCount() noexcept
 	{
 		this->setItemCount(0);
 		this->setFreeBytes(PAGE_AVAILABLE_BYTES);
@@ -33,11 +33,11 @@ namespace LiteCppDB
 
 #pragma region Read / Write pages
 
-	void EmptyPage::ReadContent(ByteReader reader)
+	void EmptyPage::ReadContent(ByteReader reader) noexcept
 	{
 	}
 
-	void EmptyPage::WriteContent(ByteWriter writer)
+	void EmptyPage::WriteContent(ByteWriter writer) noexcept
 	{
 	}
 

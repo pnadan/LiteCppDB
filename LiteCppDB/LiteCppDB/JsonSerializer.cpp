@@ -4,6 +4,7 @@
 #include "JsonWriter.h"
 #include "JsonReader.h"
 #include "StringScanner.h"
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
@@ -71,7 +72,7 @@ namespace LiteCppDB
 		std::istringstream sr;
 		auto reader = JsonReader(sr);
 		auto value = reader.Deserialize();
-		s.Seek(static_cast<int>(reader.getPosition() - 1));
+		s.Seek(gsl::narrow_cast<int32_t>(reader.getPosition() - 1));
 		return value;
 
 	}

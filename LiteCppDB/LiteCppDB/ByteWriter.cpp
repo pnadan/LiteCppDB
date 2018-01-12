@@ -3,6 +3,7 @@
 #include "BsonValue.h"
 #include "BsonWriter.h"
 #include "ByteWriter.h"
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
@@ -11,7 +12,7 @@ namespace LiteCppDB
 		return this->mBuffer;
 	}
 
-	int32_t ByteWriter::getPosition()
+	int32_t ByteWriter::getPosition() noexcept
 	{
 		return this->mPosition;
 	}
@@ -29,7 +30,7 @@ namespace LiteCppDB
 		this->mPosition = 0;
 	}
 
-	void ByteWriter::Skip(int32_t length)
+	void ByteWriter::Skip(int32_t length) noexcept
 	{
 		this->mPosition += length;
 	}
@@ -46,9 +47,9 @@ namespace LiteCppDB
 	void ByteWriter::Write(bool value)
 	{
 		if (value)
-			this->mBuffer[this->mPosition] = static_cast<uint8_t>(1);
+			this->mBuffer[this->mPosition] = 1;
 		else
-			this->mBuffer[this->mPosition] = static_cast<uint8_t>(0);
+			this->mBuffer[this->mPosition] = 0;
 
 		this->mPosition++;
 	}
@@ -57,7 +58,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (2 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (2 * i)) & 0xFF;
 		}
 
 		this->mPosition += 2;
@@ -67,7 +68,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (4 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (4 * i)) & 0xFF;
 		}
 
 		this->mPosition += 4;
@@ -77,7 +78,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (8 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (8 * i)) & 0xFF;
 		}
 
 		this->mPosition += 8;
@@ -87,7 +88,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (2 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (2 * i)) & 0xFF;
 		}
 
 		this->mPosition += 2;
@@ -97,7 +98,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (8 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (8 * i)) & 0xFF;
 		}
 
 		this->mPosition += 4;
@@ -107,7 +108,7 @@ namespace LiteCppDB
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			this->mBuffer[this->mPosition + i] = static_cast<uint8_t>((value >> (8 * i)) & 0xFF);
+			this->mBuffer[this->mPosition + i] = (value >> (8 * i)) & 0xFF;
 		}
 
 		this->mPosition += 8;
@@ -125,12 +126,12 @@ namespace LiteCppDB
 
 	void ByteWriter::Write(std::vector<uint8_t> value)
 	{
-		for (int i = 0; i < static_cast<int32_t>(value.size()); i++)
+		for (int i = 0; i < value.size(); i++)
 		{
 			this->mBuffer[this->mPosition + i] = value.at(i) & 0xFF;
 		}
 
-		this->mPosition += static_cast<int32_t>(value.size());
+		this->mPosition += gsl::narrow_cast<int32_t>(value.size());
 	}
 
 #pragma endregion Native data types
@@ -154,9 +155,9 @@ namespace LiteCppDB
 		this->Write(myVector);
 	}
 
-	void ByteWriter::Write(std::chrono::time_point<std::chrono::system_clock> value)
+	void ByteWriter::Write(std::chrono::time_point<std::chrono::system_clock> value) noexcept
 	{
-		const uint8_t* my_bytes = static_cast<uint8_t*>(static_cast<void*>(&value));
+		const uint8_t* my_bytes = gsl::narrow_cast<uint8_t*>(static_cast<void*>(&value));
 	}
 
 	void ByteWriter::Write(PageAddress value)

@@ -1,10 +1,11 @@
 #pragma once
+
 #include "CollectionIndex.h"
 #include "BasePage.h"
 
-#include <string>
-#include <vector>
-#include <regex>
+////#include <string>
+////#include <vector>
+////#include <regex>
 
 namespace LiteCppDB
 {
@@ -25,7 +26,7 @@ namespace LiteCppDB
 		//TODOstatic std::regex NamePattern("\^[\w - ]{ 1,30 }$");
 
 		// Page type = Collection
-		PageType getPageType() override;
+		PageType getPageType() noexcept override;
 
 		// Name of collection
 		std::string getCollectionName();
@@ -33,27 +34,27 @@ namespace LiteCppDB
 
 		// Get a reference for the free list data page - its private list per collection - each DataPage contains only data for 1 collection (no mixing)
 		// Must to be a Field to be used as parameter reference
-		uint32_t getFreeDataPageID();
+		uint32_t getFreeDataPageID() noexcept;
 
 		// Get the number of documents inside this collection
-		int64_t getDocumentCount();
-		void setDocumentCount(int64_t documentCount);
+		int64_t getDocumentCount() noexcept;
+		void setDocumentCount(int64_t documentCount) noexcept;
 
 		// Get all indexes from this collection - includes non-used indexes
 		std::vector<LiteCppDB::CollectionIndex> getIndexes();
 		void setIndexes(std::vector<LiteCppDB::CollectionIndex> indexes);
 
-		CollectionPage();
+		CollectionPage() noexcept;
 		CollectionPage(uint32_t pageID);
 
 		// Update freebytes + items count
-		void UpdateItemCount() override;
+		void UpdateItemCount() noexcept override;
 
 #pragma region Read / Write pages
 
-		void ReadContent(ByteReader reader) override;
+		void ReadContent(ByteReader reader) noexcept override;
 
-		void WriteContent(ByteWriter writer) override;
+		void WriteContent(ByteWriter writer) noexcept override;
 
 #pragma endregion
 

@@ -10,17 +10,17 @@
 
 namespace LiteCppDB_Console_Commands
 {
-	DataAccess Open::getAccess()
+	DataAccess Open::getAccess() noexcept
 	{
 		return DataAccess::None;
 	}
 
-	bool Open::IsCommand(LiteCppDB::StringScanner& s)
+	bool Open::IsCommand(LiteCppDB::StringScanner& s) noexcept
 	{
 		return s.Scan("open[[:s:]]+").length() > 0;
 	}
 
-	void Open::Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env)
+	void Open::Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env) noexcept
 	{
 		//// if needs upgrade, do it now
 		if (env.getConnectionString().getUpgrade())
@@ -34,11 +34,11 @@ namespace LiteCppDB_Console_Commands
 			// open datafile just to test if it's ok (or to create new)
 			if (!file)
 			{
-				auto e = env.CreateEngine(DataAccess::Read);
+				const auto e = env.CreateEngine(DataAccess::Read);
 			}
 			else
 			{
-				auto e = env.CreateEngine(DataAccess::Write);
+				const auto e = env.CreateEngine(DataAccess::Write);
 			}
 		}
 	}

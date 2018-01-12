@@ -12,11 +12,11 @@ namespace LiteCppDB
 	class JsonWriter
 	{
 	public:
-		bool getPretty();
-		void setPretty(bool pretty);
+		bool getPretty() noexcept;
+		void setPretty(bool pretty) noexcept;
 
-		bool getWriteBinary();
-		void setWriteBinary(bool writeBinary);
+		bool getWriteBinary() noexcept;
+		void setWriteBinary(bool writeBinary) noexcept;
 
 		JsonWriter(std::ostringstream& writer);
 

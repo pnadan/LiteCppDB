@@ -39,27 +39,27 @@ namespace LiteCppDB
 #pragma region Properties
 
 	public:
-		BsonMapper();
+		BsonMapper() noexcept;
 
 		// Indicate that mapper do not serialize null values (default false)
-		bool getSerializeNullValues();
-		void setSerializeNullValues(bool serializeNullValues);
+		bool getSerializeNullValues() noexcept;
+		void setSerializeNullValues(bool serializeNullValues) noexcept;
 
 		// Apply .Trim() in strings when serialize (default true)
-		bool getTrimWhitespace();
-		void setTrimWhitespace(bool trimWhitespace);
+		bool getTrimWhitespace() noexcept;
+		void setTrimWhitespace(bool trimWhitespace) noexcept;
 
 		// Convert EmptyString to Null (default true)
-		bool getEmptyStringToNull();
-		void setEmptyStringToNull(bool emptyStringToNull);
+		bool getEmptyStringToNull() noexcept;
+		void setEmptyStringToNull(bool emptyStringToNull) noexcept;
 
 		// Get/Set that mapper must include fields (default: false)
-		bool getIncludeFields();
-		void setIncludeFields(bool includeFields);
+		bool getIncludeFields() noexcept;
+		void setIncludeFields(bool includeFields) noexcept;
 
 		// Get/Set that mapper must include non public (private, protected and internal) (default: false)
-		bool getIncludeNonPublic();
-		void setIncludeNonPublic(bool includeNonPublic);
+		bool getIncludeNonPublic() noexcept;
+		void setIncludeNonPublic(bool includeNonPublic) noexcept;
 
 #pragma endregion
 
@@ -70,7 +70,7 @@ namespace LiteCppDB
 #pragma region AutoId
 
 		// Set new Id in entity class if entity needs one
-		void SetAutoId(std::any entity, LiteEngine engine, std::string collection);
+		void SetAutoId(std::any entity, LiteEngine engine, std::string collection) noexcept;
 
 #pragma endregion
 
@@ -80,10 +80,10 @@ namespace LiteCppDB
 #pragma region Predefinded Property Resolvers
 
 		// Use lower camel case resolution for convert property names to field names
-		BsonMapper UseCamelCase();
+		BsonMapper UseCamelCase() noexcept;
 
 		// Uses lower camel case with delimiter to convert property names to field names
-		BsonMapper UseLowerCaseDelimiter(char delimiter = '_');
+		BsonMapper UseLowerCaseDelimiter(char delimiter = '_') noexcept;
 
 #pragma endregion
 
@@ -96,13 +96,13 @@ namespace LiteCppDB
 #pragma region Register DbRef
 
 		// Register a property mapper as DbRef to serialize/deserialize only document reference _id
-		static void RegisterDbRef(BsonMapper mapper, MemberMapper member, std::string collection);
+		static void RegisterDbRef(BsonMapper mapper, MemberMapper member, std::string collection) noexcept;
 
 		// Register a property as a DbRef - implement a custom Serialize/Deserialize actions to convert entity to $id, $ref only
-		static void RegisterDbRefItem(BsonMapper mapper, MemberMapper member, std::string collection);
+		static void RegisterDbRefItem(BsonMapper mapper, MemberMapper member, std::string collection) noexcept;
 
 		// Register a property as a DbRefList - implement a custom Serialize/Deserialize actions to convert entity to $id, $ref only
-		static void RegisterDbRefList(BsonMapper mapper, MemberMapper member, std::string collection);
+		static void RegisterDbRefList(BsonMapper mapper, MemberMapper member, std::string collection) noexcept;
 
 #pragma endregion
 	};

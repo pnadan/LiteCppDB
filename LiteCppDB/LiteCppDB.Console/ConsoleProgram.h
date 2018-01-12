@@ -12,8 +12,14 @@ namespace LiteCppDB_Console
 	class ConsoleProgram
 	{
 	public:
-		ConsoleProgram();
-		~ConsoleProgram() {};
+		ConsoleProgram() noexcept;
+		virtual ~ConsoleProgram() {};
+
+		ConsoleProgram(const ConsoleProgram& src) noexcept;
+		virtual ConsoleProgram& operator=(const ConsoleProgram& rhs) noexcept;
+
+		ConsoleProgram(const ConsoleProgram&& src) noexcept;
+		virtual ConsoleProgram& operator=(ConsoleProgram&& rhs) noexcept;
 
 		void Start(InputCommand input, Display display);
 

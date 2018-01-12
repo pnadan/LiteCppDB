@@ -22,12 +22,12 @@ namespace LiteCppDB
 	public:
 		const int32_t MAX_DOCUMENT_SIZE = 256 * BasePage::PAGE_AVAILABLE_BYTES; 
 
-		LITECPPDB_API BsonDocument();
+		LITECPPDB_API BsonDocument() noexcept;
 
-		LITECPPDB_API BsonDocument(std::map<std::string, BsonValue> dict);
+		LITECPPDB_API BsonDocument(std::map<std::string, BsonValue> dict) noexcept;
 
 		// Get/Set a field for document. Fields are case sensitive
-		LITECPPDB_API BsonValue getFieldForDoc(std::string name);
+		LITECPPDB_API BsonValue getFieldForDoc(std::string name) noexcept;
 
 		LITECPPDB_API void setFieldForDoc(std::string name, LiteCppDB::BsonDocument::BsonValue bsonValue);
 
@@ -37,13 +37,13 @@ namespace LiteCppDB
 #pragma region Get / Set methods
 
 		// Set value to a path - supports dotted path like: Customer.Address.Street - Fluent API (returns same BsonDocument)
-		LITECPPDB_API BsonDocument Set(std::string path, BsonValue value);
+		LITECPPDB_API BsonDocument Set(std::string path, BsonValue value) noexcept;
 
 #pragma endregion
 
 #pragma region CompareTo / ToString
 
-		LITECPPDB_API int32_t CompareTo(BsonValue other) override;
+		LITECPPDB_API int32_t CompareTo(BsonValue other) noexcept override;
 
 #pragma endregion
 
@@ -51,27 +51,27 @@ namespace LiteCppDB
 
 		std::vector<std::string> getKeys();
 
-		std::vector<BsonValue> getValues();
+		std::vector<BsonValue> getValues() noexcept;
 
 		int32_t getCount();
 
-		bool getIsReadOnly();
+		bool getIsReadOnly() noexcept;
 
-		bool ContainsKey(std::string key);
+		bool ContainsKey(std::string key) noexcept;
 
-		void Add(std::string key, BsonValue value);
+		void Add(std::string key, BsonValue value) noexcept;
 
-		bool Remove(std::string key);
+		bool Remove(std::string key) noexcept;
 
 		LITECPPDB_API BsonValue TryGetValue(std::string key);
 
-		void Add(std::map<std::string, BsonValue> item);
+		void Add(std::map<std::string, BsonValue> item) noexcept;
 
-		void Clear();
+		void Clear() noexcept;
 
-		bool Contains(std::map<std::string, BsonValue> item);
+		bool Contains(std::map<std::string, BsonValue> item) noexcept;
 
-		bool Remove(std::map<std::string, BsonValue> item);
+		bool Remove(std::map<std::string, BsonValue> item) noexcept;
 
 #pragma endregion
 	};

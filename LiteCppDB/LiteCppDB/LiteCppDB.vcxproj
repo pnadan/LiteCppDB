@@ -100,10 +100,12 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnablePREfast>true</EnablePREfast>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <AdditionalIncludeDirectories>F:\GITHUB\Repos\LiteCppDB\LiteCppDB\Include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -194,9 +196,10 @@
     <ClInclude Include="DataPage.h" />
     <ClInclude Include="DataService.h" />
     <ClInclude Include="Delete.h" />
+    <ClInclude Include="DeleteEngine.h" />
     <ClInclude Include="DictionaryExtensions.h" />
     <ClInclude Include="EmptyPage.h" />
-    <ClInclude Include="EngineAggregateEngine.h" />
+    <ClInclude Include="AggregateEngine.h" />
     <ClInclude Include="EntityBuilder.h" />
     <ClInclude Include="EntityMapper.h" />
     <ClInclude Include="ExpressionExtensions.h" />
@@ -238,7 +241,6 @@
     <ClInclude Include="LiteRepository.h" />
     <ClInclude Include="LiteStorage.h" />
     <ClInclude Include="LiteTransaction.h" />
-    <ClInclude Include="LockControl.h" />
     <ClInclude Include="LockService.h" />
     <ClInclude Include="LockState.h" />
     <ClInclude Include="Logger.h" />
@@ -317,6 +319,7 @@
     <ClCompile Include="DataPage.cpp" />
     <ClCompile Include="DataService.cpp" />
     <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="DeleteEngine.cpp" />
     <ClCompile Include="DictionaryExtensions.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EmptyPage.cpp" />
@@ -362,7 +365,6 @@
     <ClCompile Include="LiteRepository.cpp" />
     <ClCompile Include="LiteStorage.cpp" />
     <ClCompile Include="LiteTransaction.cpp" />
-    <ClCompile Include="LockControl.cpp" />
     <ClCompile Include="LockService.cpp" />
     <ClCompile Include="LockState.cpp" />
     <ClCompile Include="Logger.cpp" />

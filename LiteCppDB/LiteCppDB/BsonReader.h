@@ -5,6 +5,7 @@
 #include "ByteReader.h"
 #include "BsonType.h"
 #include "BsonValue.h"
+#include "gsl\gsl"
 
 #include <string>
 #include <vector>
@@ -32,7 +33,7 @@ namespace LiteCppDB
 
 	private:
 		// Reads an element (key-value) from an reader
-		LITECPPDB_API BsonValue ReadElement(ByteReader& reader, /*out*/ std::string* name);
+		LITECPPDB_API BsonValue ReadElement(ByteReader& reader, /*out*/ gsl::not_null<std::string*> name);
 
 		std::string ReadString(ByteReader& reader);
 

@@ -5,41 +5,41 @@
 namespace LiteCppDB
 {
 	// Position of this node inside a IndexPage - Store only Position.Index
-	PageAddress IndexNode::getPosition()
+	PageAddress IndexNode::getPosition() noexcept
 	{
 		return this->mPosition;
 	}
-	void IndexNode::setPosition(PageAddress position)
+	void IndexNode::setPosition(PageAddress position) noexcept
 	{
 		this->mPosition = position;
 	}
 
 	/// Slot position of index in data block
-	uint64_t IndexNode::getSlot()
+	uint64_t IndexNode::getSlot() noexcept
 	{
 		return this->mSlot;
 	}
-	void IndexNode::setSlot(uint64_t slot)
+	void IndexNode::setSlot(uint64_t slot) noexcept
 	{
 		this->mSlot = slot;
 	}
 
 	// Prev node in same document list index nodes
-	PageAddress IndexNode::getPrevNode()
+	PageAddress IndexNode::getPrevNode() noexcept
 	{
 		return this->mPrevNode;
 	}
-	void IndexNode::setPrevNode(PageAddress prevNode)
+	void IndexNode::setPrevNode(PageAddress prevNode) noexcept
 	{
 		this->mPrevNode = prevNode;
 	}
 
 	// Next node in same document list index nodes
-	PageAddress IndexNode::getNextNode()
+	PageAddress IndexNode::getNextNode() noexcept
 	{
 		return this->mNextNode;
 	}
-	void IndexNode::setNextNode(PageAddress nextNode)
+	void IndexNode::setNextNode(PageAddress nextNode) noexcept
 	{
 		this->mNextNode = nextNode;
 	}
@@ -65,37 +65,37 @@ namespace LiteCppDB
 	}
 
 	// Length of key - used for calculate Node size
-	uint16_t IndexNode::getKeyLength()
+	uint16_t IndexNode::getKeyLength() noexcept
 	{
 		return this->mKeyLength;
 	}
-	void IndexNode::setKeyLength(uint16_t keyLength)
+	void IndexNode::setKeyLength(uint16_t keyLength) noexcept
 	{
 		this->mKeyLength = keyLength;
 	}
 
 	// The object value that was indexed
-	BsonValue IndexNode::getKey()
+	BsonValue IndexNode::getKey() noexcept
 	{
 		return this->mKey;
 	}
-	void IndexNode::setKey(BsonValue key)
+	void IndexNode::setKey(BsonValue key) noexcept
 	{
 		this->mKey = key;
 	}
 
 	// Reference for a datablock - the value
-	PageAddress IndexNode::getDataBlock()
+	PageAddress IndexNode::getDataBlock() noexcept
 	{
 		return this->mDataBlock;
 	}
-	void IndexNode::setDataBlock(PageAddress dataBlock)
+	void IndexNode::setDataBlock(PageAddress dataBlock) noexcept
 	{
 		this->mDataBlock = dataBlock;
 	}
 
 	// Returns Next (order == 1) OR Prev (order == -1)
-	PageAddress IndexNode::NextPrev(int32_t index, int32_t order)
+	PageAddress IndexNode::NextPrev(int32_t index, int32_t order) noexcept
 	{
 		PageAddress pa;
 		return pa;// order == Query.Ascending ? this.Next[index] : this.Prev[index];
@@ -115,7 +115,7 @@ namespace LiteCppDB
 			this->mKeyLength; // bytes count in BsonValue
 	}
 
-	IndexNode::IndexNode(uint64_t level)
+	IndexNode::IndexNode(uint8_t level)
 	{
 		this->mKeyLength = 0;
 		this->mSlot = 0;

@@ -72,7 +72,8 @@ namespace LiteCppDB_Tests
 			const bool m_TestImplemented = false;
 			Assert::IsTrue(m_TestImplemented);
 
-			auto mapper = new LiteCppDB::BsonMapper();
+			//auto mapper = LiteCppDB::BsonMapper();
+
 
 			//auto c0 = AttrCustomer()
 			//{
@@ -87,7 +88,7 @@ namespace LiteCppDB_Tests
 			//	//}
 			//};
 
-			//auto j0 = LiteCppDB::JsonSerializer().Serialize(mapper.ToDocument(c0));
+			////auto j0 = LiteCppDB::JsonSerializer().Serialize(mapper.ToDocument(c0));
 
 			//auto c1 = mapper.ToObject<AttrCustomer>(LiteCppDB::JsonSerializer().Deserialize(j0).AsDocument);
 

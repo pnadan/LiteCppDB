@@ -4,11 +4,11 @@
 
 namespace LiteCppDB
 {
-	bool MemberMapper::getAutoId()
+	bool MemberMapper::getAutoId() noexcept
 	{
 		return this->mAutoId;
 	}
-	void MemberMapper::setAutoId(bool autoId)
+	void MemberMapper::setAutoId(bool autoId) noexcept
 	{
 		this->mAutoId = autoId;
 	}

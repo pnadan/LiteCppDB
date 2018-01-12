@@ -9,21 +9,21 @@ namespace LiteCppDB
 	{
 	public:
 		// Page type = Empty
-		PageType getPageType() override;
+		PageType getPageType() noexcept override;
 
-		EmptyPage(uint32_t pageID);
+		EmptyPage(uint32_t pageID) noexcept;
 
 		EmptyPage(BasePage page);
 
 		// Update freebytes + items count
-		void UpdateItemCount() override;
+		void UpdateItemCount() noexcept override;
 
 #pragma region Read / Write pages
 
 	protected:
-		void ReadContent(ByteReader reader) override;
+		void ReadContent(ByteReader reader) noexcept override;
 
-		void WriteContent(ByteWriter writer) override;
+		void WriteContent(ByteWriter writer) noexcept override;
 
 #pragma endregion Read / Write pages
 	};

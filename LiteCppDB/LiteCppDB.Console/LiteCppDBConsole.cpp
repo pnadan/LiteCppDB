@@ -19,7 +19,7 @@ using namespace LiteCppDB_Console;
 int main()
 {
 	InputCommand input;
-	Display display;
+	const Display display;
 
 	SetConsoleTitle(L"LiteCppDB");
 

@@ -1,11 +1,12 @@
 #include "stdafx.h"
 
 #include "DataPage.h"
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
 	// Page type = Extend
-	PageType DataPage::getPageType()
+	PageType DataPage::getPageType() noexcept
 	{
 		return PageType::Data;
 	}
@@ -25,7 +26,7 @@ namespace LiteCppDB
 		}
 	}
 
-	DataPage::DataPage()
+	DataPage::DataPage() noexcept
 	{
 		this->mPageType = PageType::Empty;
 	}
@@ -36,14 +37,14 @@ namespace LiteCppDB
 	}
 
 	// Update freebytes + items count
-	void DataPage::UpdateItemCount()
+	void DataPage::UpdateItemCount() noexcept
 	{
-		this->setItemCount(static_cast<uint16_t>(this->mDataBlocks.size()));
+		this->setItemCount(gsl::narrow_cast<uint16_t>(this->mDataBlocks.size()));
 	}
 
 #pragma region Read / Write pages
 
-	void DataPage::ReadContent(ByteReader reader)
+	void DataPage::ReadContent(ByteReader reader) noexcept
 	{
 		for (auto i = 0; i < this->getItemCount(); i++)
 		{
@@ -51,20 +52,20 @@ namespace LiteCppDB
 
 			block.setPosition(PageAddress(this->getPageID(), reader.ReadUInt16()));
 			block.setExtendPageID(reader.ReadUInt32());
-			auto size = reader.ReadUInt16();
+			const auto size = reader.ReadUInt16();
 			block.setData(reader.ReadBytes(size));
 
 			this->mDataBlocks.insert(std::pair<uint16_t, DataBlock>(block.getPosition().getIndex(), block));
 		}
 	}
 
-	void DataPage::WriteContent(ByteWriter writer)
+	void DataPage::WriteContent(ByteWriter writer) noexcept
 	{
 		for_each(cbegin(this->mDataBlocks), cend(this->mDataBlocks), [&writer](std::pair<uint16_t, DataBlock>(dbs))
 		{
 			writer.Write(dbs.second.getPosition().getIndex());
 			writer.Write(dbs.second.getExtendPageID());
-			writer.Write(static_cast<uint16_t>(dbs.second.getData().size()));
+			writer.Write(gsl::narrow_cast<uint16_t>(dbs.second.getData().size()));
 			writer.Write(dbs.second.getData());
 		});
 	}

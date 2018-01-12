@@ -21,8 +21,8 @@ namespace LiteCppDB
 		std::string getToken();
 		void setToken(std::string token);
 
-		JsonTokenType getTokenType();
-		void setTokenType(JsonTokenType tokenType);
+		JsonTokenType getTokenType() noexcept;
+		void setTokenType(JsonTokenType tokenType) noexcept;
 
 		void Expect(JsonTokenType type);
 
@@ -35,9 +35,9 @@ namespace LiteCppDB
 	class JsonTokenizer
 	{
 	public:
-		bool getEOF();
+		bool getEOF() noexcept;
 
-		int64_t getPosition();
+		int64_t getPosition() noexcept;
 
 		JsonTokenizer(std::istringstream* reader);
 
@@ -50,8 +50,8 @@ namespace LiteCppDB
 		char *_current = '\0';
 		std::istringstream* _reader;
 
-		void setEOF(bool eOF);
-		void setPosition(int64_t position);
+		void setEOF(bool eOF) noexcept;
+		void setPosition(int64_t position) noexcept;
 
 		// Read next char in stream and set in _current
 		char Read();
@@ -68,8 +68,8 @@ namespace LiteCppDB
 		// Read a string removing open and close "
 		std::string ReadString();
 
-		uint32_t ParseUnicode(char c1, char c2, char c3, char c4);
+		uint32_t ParseUnicode(char c1, char c2, char c3, char c4) noexcept;
 
-		uint32_t ParseSingleChar(char c1, uint32_t multiplier);
+		uint32_t ParseSingleChar(char c1, uint32_t multiplier) noexcept;
 	};
 }

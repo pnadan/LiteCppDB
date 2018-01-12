@@ -7,12 +7,12 @@ namespace LiteCppDB_Console_Commands
 	class Debug final : public LiteCppDB_Console::ICommand
 	{
 	public:
-		Debug();
+		Debug() noexcept;
 
-		DataAccess getAccess() override;
+		DataAccess getAccess() noexcept override;
 
-		bool IsCommand(LiteCppDB::StringScanner& s) override;
+		bool IsCommand(LiteCppDB::StringScanner& s) noexcept override;
 
-		void Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env) override;
+		void Execute(LiteCppDB::LiteEngine engine, LiteCppDB::StringScanner& s, LiteCppDB_Console::Display d, LiteCppDB_Console::InputCommand input, LiteCppDB_Console::Env env) noexcept override;
 	};
 }

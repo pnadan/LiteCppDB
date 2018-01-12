@@ -11,10 +11,10 @@ namespace LiteCppDB_Console
 	class Env
 	{
 	public:
-		LiteCppDB::ConnectionString getConnectionString();
-		void setConnectionString(LiteCppDB::ConnectionString connectionString);
+		LiteCppDB::ConnectionString getConnectionString() noexcept;
+		void setConnectionString(LiteCppDB::ConnectionString connectionString) noexcept;
 
-		Env();
+		Env() noexcept;
 
 		LiteCppDB::LiteEngine CreateEngine(DataAccess access);
 	private:

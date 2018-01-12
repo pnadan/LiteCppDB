@@ -19,22 +19,22 @@ namespace LiteCppDB
 
 	public:
 		// Create a new instance from a Type
-		static std::any CreateInstance(std::any type);
+		static std::any CreateInstance(std::any type) noexcept;
 
 #pragma endregion
 
 #pragma region Utils
 
-		bool IsNullable(std::any type);
+		bool IsNullable(std::any type) noexcept;
 
 		// Get underlying get - using to get inner Type from Nullable type
-		static std::any UnderlyingTypeOf(std::any type);
+		static std::any UnderlyingTypeOf(std::any type) noexcept;
 
 		// Get item type from a generic List or Array
-		static std::any GetListItemType(std::any listType);
+		static std::any GetListItemType(std::any listType) noexcept;
 
 		// Returns true if Type is any kind of Array/IList/ICollection/....
-		static bool IsList(std::any type);
+		static bool IsList(std::any type) noexcept;
 
 #pragma endregion
 	};

@@ -1,11 +1,12 @@
 #include "stdafx.h"
 
 #include "IndexPage.h"
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
 	// Page type = Index
-	PageType IndexPage::getPageType()
+	PageType IndexPage::getPageType() noexcept
 	{
 		return PageType::Index;
 	}
@@ -25,21 +26,21 @@ namespace LiteCppDB
 	}
 
 	// Update freebytes + items count
-	void IndexPage::UpdateItemCount()
+	void IndexPage::UpdateItemCount() noexcept
 	{
 		this->setItemCount(std::any_cast<int32_t>(this->mNodes.size()));
 	}
 
 #pragma region Read / Write pages
 
-	void IndexPage::ReadContent(ByteReader reader)
+	void IndexPage::ReadContent(ByteReader reader) noexcept
 	{
 		this->mNodes = std::map<uint16_t, IndexNode>();
 
 		for (auto i = 0; i < this->getItemCount(); i++)
 		{
-			auto index = reader.ReadUInt16();
-			auto levels = reader.ReadByte();
+			const auto index = reader.ReadUInt16();
+			const auto levels = reader.ReadByte();
 
 			auto node = IndexNode(levels);
 
@@ -62,12 +63,12 @@ namespace LiteCppDB
 		}
 	}
 
-	void IndexPage::WriteContent(ByteWriter writer)
+	void IndexPage::WriteContent(ByteWriter writer) noexcept
 	{
 		for_each(cbegin(this->mNodes), cend(this->mNodes), [&writer](std::pair<uint16_t, IndexNode>(n))
 		{
 			writer.Write(n.second.getPosition().getIndex()); // node Index on this page
-			writer.Write(static_cast<int32_t>(n.second.getPrev().size())); // level length
+			writer.Write(gsl::narrow_cast<int32_t>(n.second.getPrev().size())); // level length
 			writer.Write(n.second.getSlot()); // index slot
 			writer.Write(n.second.getPrevNode()); // prev node list
 			writer.Write(n.second.getNextNode()); // next node list
@@ -75,7 +76,7 @@ namespace LiteCppDB
 			writer.WriteBsonValue(n.second.getKey(), n.second.getKeyLength()); // value
 			writer.Write(n.second.getDataBlock()); // data block reference
 
-			for (auto j = 0; j < static_cast<int32_t>(n.second.getPrev().size()); j++)
+			for (auto j = 0; j < n.second.getPrev().size(); j++)
 			{
 				writer.Write(n.second.getPrev().at(j));
 				writer.Write(n.second.getNext().at(j));

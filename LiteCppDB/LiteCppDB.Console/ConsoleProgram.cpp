@@ -14,8 +14,36 @@ using namespace std;
 
 namespace LiteCppDB_Console
 {
-	ConsoleProgram::ConsoleProgram()
+	ConsoleProgram::ConsoleProgram() noexcept
 	{
+	}
+
+	ConsoleProgram::ConsoleProgram(const ConsoleProgram& src) noexcept
+	{
+	}
+
+	ConsoleProgram& ConsoleProgram::operator=(const ConsoleProgram& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		return *this;
+	}
+
+	ConsoleProgram::ConsoleProgram(const ConsoleProgram&& src) noexcept
+	{
+	}
+
+	ConsoleProgram& ConsoleProgram::operator=(ConsoleProgram&& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		return *this;
 	}
 
 	void myfunction(int i) 
@@ -29,7 +57,7 @@ namespace LiteCppDB_Console
 
 		Env env;
 
-		LiteCppDB::LiteEngine engine;
+		const LiteCppDB::LiteEngine engine;
 
 		// register commands
 		this->RegisterCommands(commands);
@@ -49,7 +77,7 @@ namespace LiteCppDB_Console
 				auto s = LiteCppDB::StringScanner::StringScanner(cmd);
 				auto found = false;
 
-				for (int32_t i = 0; i < static_cast<int32_t>(commands.size()); ++i)
+				for (int32_t i = 0; i < commands.size(); ++i)
 				{
 					if (!commands.at(i)->IsCommand(s))
 						continue;

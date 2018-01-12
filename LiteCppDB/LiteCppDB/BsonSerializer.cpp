@@ -6,7 +6,7 @@
 
 namespace LiteCppDB
 {
-	LITECPPDB_API std::vector<uint8_t> BsonSerializer::Serialize(BsonDocument& doc)
+	LITECPPDB_API std::vector<uint8_t> BsonSerializer::Serialize(const BsonDocument& doc)
 	{
 		if (&doc == nullptr) throw std::exception("ArgumentNullException(\"doc\")");
 
@@ -15,7 +15,7 @@ namespace LiteCppDB
 		return writer.Serialize(doc);
 	}
 
-	LITECPPDB_API BsonDocument BsonSerializer::Deserialize(std::vector<uint8_t>& bson)
+	LITECPPDB_API BsonDocument BsonSerializer::Deserialize(const std::vector<uint8_t>& bson)
 	{
 		if (&bson == nullptr || bson.size() == 0) throw std::exception("ArgumentNullException(\"bson\")");
 

@@ -4,7 +4,7 @@
 
 namespace LiteCppDB
 {
-	int32_t ByteReader::getPosition()
+	int32_t ByteReader::getPosition() noexcept
 	{
 		return this->mPos;
 	}
@@ -15,7 +15,7 @@ namespace LiteCppDB
 		this->mPos = 0;
 	}
 
-	void ByteReader::Skip(int32_t length)
+	void ByteReader::Skip(int32_t length) noexcept
 	{
 		this->mPos += length;
 	}
@@ -50,42 +50,42 @@ namespace LiteCppDB
 	{
 		this->mPos += 2;
 
-		return static_cast<uint16_t>(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
+		return mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2));
 	}
 
 	uint32_t ByteReader::ReadUInt32()
 	{
 		this->mPos += 4;
 
-		return static_cast<uint32_t>(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
+		return mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4));
 	}
 
 	uint64_t ByteReader::ReadUInt64()
 	{
 		this->mPos += 8;
 
-		return static_cast<uint64_t>(((uint64_t)mBuffer.at(mPos - 1) << 56) | ((uint64_t)mBuffer.at(mPos - 2) << 48) | ((uint64_t)mBuffer.at(mPos - 3) << 40) | ((uint64_t)mBuffer.at(mPos - 4) << 32) | ((uint64_t)mBuffer.at(mPos - 5) << 24) | ((uint64_t)mBuffer.at(mPos - 6) << 16) | ((uint64_t)mBuffer.at(mPos - 7) << 8) | ((uint64_t)mBuffer.at(mPos - 8)));
+		return ((uint64_t)mBuffer.at(mPos - 1) << 56) | ((uint64_t)mBuffer.at(mPos - 2) << 48) | ((uint64_t)mBuffer.at(mPos - 3) << 40) | ((uint64_t)mBuffer.at(mPos - 4) << 32) | ((uint64_t)mBuffer.at(mPos - 5) << 24) | ((uint64_t)mBuffer.at(mPos - 6) << 16) | ((uint64_t)mBuffer.at(mPos - 7) << 8) | ((uint64_t)mBuffer.at(mPos - 8));
 	}
 
 	int16_t ByteReader::ReadInt16()
 	{
 		this->mPos += 2;
 
-		return static_cast<int16_t>(mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2)));
+		return mBuffer.at(mPos - 1) << 8 | (mBuffer.at(mPos - 2));
 	}
 
 	int32_t ByteReader::ReadInt32()
 	{
 		this->mPos += 4;
 
-		return static_cast<int32_t>(mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4)));
+		return mBuffer.at(mPos - 1) << 24 | (mBuffer.at(mPos - 2) << 16) | (mBuffer.at(mPos - 3) << 8) | (mBuffer.at(mPos - 4));
 	}
 
 	int64_t ByteReader::ReadInt64()
 	{
 		this->mPos += 8;
 
-		return static_cast<int64_t>(((int64_t)mBuffer.at(mPos - 1) << 56) | ((int64_t)mBuffer.at(mPos - 2) << 48) | ((int64_t)mBuffer.at(mPos - 3) << 40) | ((int64_t)mBuffer.at(mPos - 4) << 32) | ((int64_t)mBuffer.at(mPos - 5) << 24) | ((int64_t)mBuffer.at(mPos - 6) << 16) | ((int64_t)mBuffer.at(mPos - 7) << 8) | ((int64_t)mBuffer.at(mPos - 8)));
+		return ((int64_t)mBuffer.at(mPos - 1) << 56) | ((int64_t)mBuffer.at(mPos - 2) << 48) | ((int64_t)mBuffer.at(mPos - 3) << 40) | ((int64_t)mBuffer.at(mPos - 4) << 32) | ((int64_t)mBuffer.at(mPos - 5) << 24) | ((int64_t)mBuffer.at(mPos - 6) << 16) | ((int64_t)mBuffer.at(mPos - 7) << 8) | ((int64_t)mBuffer.at(mPos - 8));
 	}
 
 	double ByteReader::ReadDouble(int32_t length)
@@ -117,8 +117,8 @@ namespace LiteCppDB
 
 	std::string ByteReader::ReadString()
 	{
-		auto length = this->ReadInt32();
-		auto bytes = this->ReadBytes(length);
+		const auto length = this->ReadInt32();
+		const auto bytes = this->ReadBytes(length);
 		return std::string();
 	}
 

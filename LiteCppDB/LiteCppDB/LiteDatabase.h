@@ -20,31 +20,37 @@ namespace LiteCppDB
 #pragma region Properties
 
 	private:
-		LiteCppDB::LiteEngine _engine;// = NULL;
-		LiteCppDB::BsonMapper _mapper;// (BsonMapper::Global());
+		LiteCppDB::LiteEngine mEngine;// = NULL;
+		LiteCppDB::BsonMapper mMapper;// (BsonMapper::Global());
 									  //LiteCppDB::Logger _log;
 		//LiteCppDB::ConnectionString _connectionString = NULL;
-		LiteCppDB::ConnectionString _connectionString;// = nullptr;
+		LiteCppDB::ConnectionString mConnectionString;// = nullptr;
 
 	public:
 		// Get current instance of BsonMapper used in this database instance (can be BsonMapper.Global)
-		LITECPPDB_API BsonMapper getMapper();
+		LITECPPDB_API BsonMapper getMapper() noexcept;
 
 		// Get current database engine instance. Engine is lower data layer that works with BsonDocuments only (no mapper, no LINQ)
-		LITECPPDB_API LiteEngine getEngine();
+		LITECPPDB_API LiteEngine getEngine() noexcept;
 
 #pragma endregion
 
 #pragma region Ctor
 
-		LITECPPDB_API LiteDatabase();
+		LITECPPDB_API LiteDatabase() noexcept;
 		virtual ~LiteDatabase();
 
+		LITECPPDB_API LiteDatabase(const LiteDatabase& src) noexcept;
+		LITECPPDB_API virtual LiteDatabase& operator=(const LiteDatabase& rhs) noexcept;
+
+		LITECPPDB_API LiteDatabase(const LiteDatabase&& src) noexcept;
+		LITECPPDB_API virtual LiteDatabase& operator=(LiteDatabase&& rhs) noexcept;
+		
 		// Starts LiteDB database using a connection string for file system database
-		LITECPPDB_API LiteDatabase(std::string connectionString, BsonMapper mapper = BsonMapper());
+		LITECPPDB_API LiteDatabase(std::string connectionString, BsonMapper mapper = BsonMapper()) noexcept;
 
 		// Starts LiteDB database using a connection string for file system database
-		LITECPPDB_API LiteDatabase(ConnectionString connectionString, BsonMapper mapper = BsonMapper());
+		LITECPPDB_API LiteDatabase(ConnectionString connectionString, BsonMapper mapper = BsonMapper()) noexcept;
 
 #pragma endregion
 
@@ -79,10 +85,10 @@ namespace LiteCppDB
 #pragma region Shrink
 
 		// Reduce disk size re-arranging unused spaces.
-		LITECPPDB_API long Shrink();
+		LITECPPDB_API long Shrink() noexcept;
 
 		// Reduce disk size re-arranging unused space. Can change password. If a temporary disk was not provided, use MemoryStream temp disk
-		LITECPPDB_API long Shrink(std::string password);
+		LITECPPDB_API long Shrink(std::string password) noexcept;
 
 #pragma endregion
 	};

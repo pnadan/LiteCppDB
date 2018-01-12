@@ -25,34 +25,40 @@ namespace LiteCppDB
 		static const int INDEX_PER_COLLECTION = 16;
 
 		// Represent slot position on index array on dataBlock/collection indexes - non-persistable
-		void setSlot(int32_t slot);
-		int getSlot();
+		void setSlot(int32_t slot) noexcept;
+		int getSlot() noexcept;
 
 		// Field name
 		void setField(std::string field);
 		std::string getField();
 
 		// Indicate if this index has distinct values only
-		void setUnique(bool unique);
-		bool getUnique();
+		void setUnique(bool unique) noexcept;
+		bool getUnique() noexcept;
 
 		// Head page address for this index
-		void setHeadNode(PageAddress headNode);
-		PageAddress getHeadNode();
+		void setHeadNode(PageAddress headNode) noexcept;
+		PageAddress getHeadNode() noexcept;
 
 		// A link pointer to tail node
-		void setTailNode(PageAddress tailNode);
-		PageAddress getTailNode();
+		void setTailNode(PageAddress tailNode) noexcept;
+		PageAddress getTailNode() noexcept;
 
 		// Get a reference for the free list index page - its private list per collection/index (must be a Field to be used as reference parameter)
-		uint32_t getFreeIndexPageID();
-		void setFreeIndexPageID(uint32_t freeIndexPageID);
+		uint32_t getFreeIndexPageID() noexcept;
+		void setFreeIndexPageID(uint32_t freeIndexPageID) noexcept;
 
 		// Returns if this index slot is empty and can be used as new index
-		bool getIsEmpty();
+		bool getIsEmpty() noexcept;
 
-		CollectionIndex();
+		CollectionIndex() noexcept;
 		virtual ~CollectionIndex() {};
+
+		CollectionIndex(const CollectionIndex& src) noexcept;
+		virtual CollectionIndex& operator=(const CollectionIndex& rhs) noexcept;
+
+		CollectionIndex(const CollectionIndex&& src) noexcept;
+		virtual CollectionIndex& operator=(CollectionIndex&& rhs) noexcept;
 
 		// Clear all index information
 		void Clear();

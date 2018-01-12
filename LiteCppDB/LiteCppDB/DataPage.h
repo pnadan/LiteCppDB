@@ -16,7 +16,7 @@ namespace LiteCppDB
 
 	public:
 		// Page type = Extend
-		PageType getPageType() override;
+		PageType getPageType() noexcept override;
 
 		// If a Data Page has less that free space, it's considered full page for new items. Can be used only for update (DataPage) ~ 50% PAGE_AVAILABLE_BYTES
 		// This value is used for minimize
@@ -26,18 +26,18 @@ namespace LiteCppDB
 		std::map<uint16_t, DataBlock> getDataBlocks();
 		void setDataBlocks(std::map<uint16_t, DataBlock> dataBlocks);
 
-		DataPage();
+		DataPage() noexcept;
 		DataPage(uint32_t pageID);
 
 		// Update freebytes + items count
-		void UpdateItemCount() override;
+		void UpdateItemCount() noexcept override;
 
 #pragma region Read / Write pages
 
 	protected:
-		void ReadContent(ByteReader reader) override;
+		void ReadContent(ByteReader reader) noexcept override;
 
-		void WriteContent(ByteWriter writer) override;
+		void WriteContent(ByteWriter writer) noexcept override;
 
 #pragma endregion
 	};

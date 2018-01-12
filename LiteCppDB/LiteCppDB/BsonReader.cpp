@@ -50,7 +50,7 @@ namespace LiteCppDB
 	}
 
 	/// Reads an element (key-value) from an reader
-	BsonValue BsonReader::ReadElement(ByteReader& reader, /*out*/ std::string* name)
+	BsonValue BsonReader::ReadElement(ByteReader& reader, /*out*/ gsl::not_null<std::string*> name)
 	{
 		const auto type = reader.ReadByte();
 		*name = ReadCString(reader);
@@ -73,7 +73,7 @@ namespace LiteCppDB
 		}
 		else if (type == 0x05) // Binary
 		{
-			auto length = reader.ReadInt32();
+			const auto length = reader.ReadInt32();
 			const auto subType = reader.ReadByte();
 			auto bytes = reader.ReadBytes(length);
 
@@ -114,7 +114,7 @@ namespace LiteCppDB
 
 	std::string BsonReader::ReadString(ByteReader& reader)
 	{
-		auto length = reader.ReadInt32();
+		const auto length = reader.ReadInt32();
 		auto bytes = reader.ReadBytes(length - 1);
 		reader.ReadByte(); // discard \x00
 		std::string str(bytes.cbegin(), bytes.cend());
@@ -123,7 +123,7 @@ namespace LiteCppDB
 
 	std::string BsonReader::ReadDateTime(ByteReader& reader)
 	{
-		auto length = reader.ReadInt32();
+		const auto length = reader.ReadInt32();
 		auto bytes = reader.ReadBytes(length - 1);
 		reader.ReadByte(); // discard \x00
 		std::string str(bytes.cbegin(), bytes.cend());
@@ -136,7 +136,7 @@ namespace LiteCppDB
 
 		while (true)
 		{
-			uint8_t buf = reader.ReadByte();
+			const uint8_t buf = reader.ReadByte();
 			if (buf == 0x00) 
 				break;
 			_strBuffer.insert(_strBuffer.begin() + pos++, buf);
@@ -152,7 +152,7 @@ namespace LiteCppDB
 
 		while (true)
 		{
-			uint8_t buf = reader.ReadByte();
+			const uint8_t buf = reader.ReadByte();
 			if (buf == 0x00)
 				break;
 			_strBuffer.insert(_strBuffer.begin() + pos++, buf);
@@ -163,7 +163,4 @@ namespace LiteCppDB
 		std::string::size_type sz;
 		return std::stod(str, &sz);
 	}
-
-	// use byte array buffer for CString (key-only)
-	std::vector<uint8_t> _strBuffer;
 }

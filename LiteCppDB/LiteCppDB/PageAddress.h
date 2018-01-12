@@ -17,24 +17,24 @@ namespace LiteCppDB
 	public:
 		const static int32_t SIZE = 6;
 
-		const static PageAddress PageAddress::getEmpty();
+		const static PageAddress PageAddress::getEmpty() noexcept;
 
 		// PageID (4 bytes)
-		uint32_t getPageID();
-		void setPageID(uint32_t pageID);
+		uint32_t getPageID() noexcept;
+		void setPageID(uint32_t pageID) noexcept;
 
 		// Index inside page (2 bytes)
-		uint16_t getIndex();
-		void setIndex(uint16_t index);
+		uint16_t getIndex() noexcept;
+		void setIndex(uint16_t index) noexcept;
 
-		bool getIsEmpty();
+		bool getIsEmpty() noexcept;
 
 		bool Equals(std::any obj);
 
 		int32_t GetHashCode();
 
-		PageAddress();
-		PageAddress(uint32_t pageID, uint16_t index);
+		PageAddress() noexcept;
+		PageAddress(uint32_t pageID, uint16_t index) noexcept;
 
 		std::string ToString();
 	};

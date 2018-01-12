@@ -27,8 +27,14 @@ namespace LiteCppDB
 
 	public:
 		// Initialize empty connection string
-		LITECPPDB_API ConnectionString();
-		LITECPPDB_API ~ConnectionString();
+		LITECPPDB_API ConnectionString() noexcept;
+		LITECPPDB_API virtual ~ConnectionString();
+
+		LITECPPDB_API ConnectionString(const ConnectionString& src) noexcept;
+		LITECPPDB_API virtual ConnectionString& operator=(const ConnectionString& rhs) noexcept;
+
+		LITECPPDB_API ConnectionString(const ConnectionString&& src) noexcept;
+		LITECPPDB_API virtual ConnectionString& operator=(ConnectionString&& rhs) noexcept;
 
 		// Initialize connection string parsing string in "key1=value1;key2=value2;...." format or only "filename" as default (when no ; char found)
 		LITECPPDB_API ConnectionString(std::string connectionString);
@@ -38,38 +44,38 @@ namespace LiteCppDB
 		LITECPPDB_API void setFilename(std::string filename);
 
 		// "journal": Enabled or disable double write check to ensure durability (default: true)
-		LITECPPDB_API bool getJournal();
-		LITECPPDB_API void setJournal(bool journal);
+		LITECPPDB_API bool getJournal() noexcept;
+		LITECPPDB_API void setJournal(bool journal) noexcept;
 
 		// "password": Encrypt (using AES) your datafile with a password (default: null - no encryption)
 		LITECPPDB_API std::string getPassword();
 		LITECPPDB_API void setPassword(std::string password);
 
 		// "cache size": Max number of pages in cache. After this size, flush data to disk to avoid too memory usage (default: 5000)
-		LITECPPDB_API int32_t getCacheSize();
-		LITECPPDB_API void setCacheSize(int32_t cacheSize);
+		LITECPPDB_API int32_t getCacheSize() noexcept;
+		LITECPPDB_API void setCacheSize(int32_t cacheSize) noexcept;
 
 		// "initial size": If database is new, initialize with allocated space - support KB, MB, GB (default: null)
-		LITECPPDB_API int64_t getInitialSize();
-		LITECPPDB_API void setInitialSize(int64_t initialSize);
+		LITECPPDB_API int64_t getInitialSize() noexcept;
+		LITECPPDB_API void setInitialSize(int64_t initialSize) noexcept;
 
 		// "limit size": Max limit of datafile - support KB, MB, GB (default: null)
-		LITECPPDB_API int64_t getLimitSize();
-		LITECPPDB_API void setLimitSize(int64_t limitSize);
+		LITECPPDB_API int64_t getLimitSize() noexcept;
+		LITECPPDB_API void setLimitSize(int64_t limitSize) noexcept;
 
 		// "log": Debug messages from database - use `LiteDatabase.Log` (default: Logger.NONE)
-		LITECPPDB_API uint8_t getLog();
-		LITECPPDB_API void setLog(uint8_t log);
+		LITECPPDB_API uint8_t getLog() noexcept;
+		LITECPPDB_API void setLog(uint8_t log) noexcept;
 
 		// "upgrade": Test if database is in old version and update if needed (default: false)
-		LITECPPDB_API bool getUpgrade();
-		LITECPPDB_API void setUpgrade(bool upgrade);
+		LITECPPDB_API bool getUpgrade() noexcept;
+		LITECPPDB_API void setUpgrade(bool upgrade) noexcept;
 
 		// "async": Use "sync over async" to UWP apps access any directory
-		LITECPPDB_API bool getAsync();
-		LITECPPDB_API void setAsync(bool async);
+		LITECPPDB_API bool getAsync() noexcept;
+		LITECPPDB_API void setAsync(bool async) noexcept;
 
-		LITECPPDB_API friend bool operator==(const ConnectionString& lhs, const ConnectionString& rhs)
+		LITECPPDB_API friend bool operator==(const ConnectionString& lhs, const ConnectionString& rhs) noexcept
 		{
 			return (lhs.mFilename == rhs.mFilename);
 		}

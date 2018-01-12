@@ -4,11 +4,11 @@
 
 namespace LiteCppDB
 {
-	BsonDocument::BsonDocument() : BsonValue::BsonValue(std::map<std::string, BsonValue>())
+	BsonDocument::BsonDocument() noexcept : BsonValue::BsonValue(std::map<std::string, BsonValue>())
 	{
 	}
 
-	BsonDocument::BsonDocument(std::map<std::string, BsonValue> dict)
+	BsonDocument::BsonDocument(std::map<std::string, BsonValue> dict) noexcept
 	{
 		if (dict.empty())
 		{
@@ -17,7 +17,7 @@ namespace LiteCppDB
 		}
 	}
 
-	LITECPPDB_API BsonValue BsonDocument::getFieldForDoc(std::string name)
+	LITECPPDB_API BsonValue BsonDocument::getFieldForDoc(std::string name) noexcept
 	{
 		return BsonValue();
 	}
@@ -48,7 +48,7 @@ namespace LiteCppDB
 		if (field.empty()) return false;
 
 		// do not use regex because is too slow
-		for (auto i = 0; i < static_cast<int32_t>(field.length()); i++)
+		for (auto i = 0; i < field.length(); i++)
 		{
 			const auto c = field[i];
 
@@ -72,7 +72,7 @@ namespace LiteCppDB
 #pragma region Get / Set methods
 
 	// Set value to a path - supports dotted path like: Customer.Address.Street - Fluent API (returns same BsonDocument)
-	BsonDocument BsonDocument::Set(std::string path, BsonValue value)
+	BsonDocument BsonDocument::Set(std::string path, BsonValue value) noexcept
 	{
 		return *this;
 	}
@@ -81,7 +81,7 @@ namespace LiteCppDB
 
 #pragma region CompareTo / ToString
 
-	int BsonDocument::CompareTo(BsonValue other)
+	int BsonDocument::CompareTo(BsonValue other) noexcept
 	{
 		return -1;
 	}
@@ -102,7 +102,7 @@ namespace LiteCppDB
 		return v;
 	}
 
-	std::vector<BsonValue> BsonDocument::getValues()
+	std::vector<BsonValue> BsonDocument::getValues() noexcept
 	{
 		std::vector<BsonValue> b;
 		return b;
@@ -113,21 +113,21 @@ namespace LiteCppDB
 		return static_cast<int32_t>(this->getRawValueSuperMap().size());
 	}
 
-	bool BsonDocument::getIsReadOnly()
+	bool BsonDocument::getIsReadOnly() noexcept
 	{
 		return false;
 	}
 
-	bool BsonDocument::ContainsKey(std::string key)
+	bool BsonDocument::ContainsKey(std::string key) noexcept
 	{
 		return false;
 	}
 
-	void BsonDocument::Add(std::string key, BsonValue value)
+	void BsonDocument::Add(std::string key, BsonValue value) noexcept
 	{
 	}
 
-	bool BsonDocument::Remove(std::string key)
+	bool BsonDocument::Remove(std::string key) noexcept
 	{
 		return false;
 	}
@@ -149,20 +149,20 @@ namespace LiteCppDB
 		}
 	}
 
-	void BsonDocument::Add(std::map<std::string, BsonValue> item)
+	void BsonDocument::Add(std::map<std::string, BsonValue> item) noexcept
 	{
 	}
 
-	void BsonDocument::Clear()
+	void BsonDocument::Clear() noexcept
 	{
 	}
 
-	bool BsonDocument::Contains(std::map<std::string, BsonValue> item)
+	bool BsonDocument::Contains(std::map<std::string, BsonValue> item) noexcept
 	{
 		return false;
 	}
 
-	bool BsonDocument::Remove(std::map<std::string, BsonValue> item)
+	bool BsonDocument::Remove(std::map<std::string, BsonValue> item) noexcept
 	{
 		return false;
 	}

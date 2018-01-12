@@ -22,8 +22,8 @@ namespace LiteCppDB
 		LITECPPDB_API std::string getSource();
 		LITECPPDB_API void setSource(std::string source);
 
-		LITECPPDB_API size_t getIndex();
-		LITECPPDB_API void setIndex(size_t index);
+		LITECPPDB_API size_t getIndex() noexcept;
+		LITECPPDB_API void setIndex(size_t index) noexcept;
 
 		// Initialize scanner with a string to be parsed
 		LITECPPDB_API StringScanner(std::string source);
@@ -31,13 +31,13 @@ namespace LiteCppDB
 		LITECPPDB_API std::string ToString();
 
 		// Reset cursor position
-		LITECPPDB_API void Reset();
+		LITECPPDB_API void Reset() noexcept;
 
 		// Skip cursor position in string source
-		LITECPPDB_API void Seek(int length);
+		LITECPPDB_API void Seek(int length) noexcept;
 
 		// Indicate that cursor is EOF
-		LITECPPDB_API bool HasTerminated();
+		LITECPPDB_API bool HasTerminated() noexcept;
 
 		// Scan in current cursor position for this patterns. If found, returns string and run with cursor
 		LITECPPDB_API std::string Scan(std::string pattern);

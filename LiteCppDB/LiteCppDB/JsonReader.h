@@ -13,7 +13,7 @@ namespace LiteCppDB
 	class JsonReader
 	{
 	public:
-		int64_t getPosition() { return _tokenizer.getPosition(); };
+		int64_t getPosition() noexcept { return _tokenizer.getPosition(); };
 
 		JsonReader(std::istringstream& reader);
 

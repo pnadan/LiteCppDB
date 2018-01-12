@@ -5,6 +5,7 @@
 #include <cctype>
 #include <any>
 #include <string>
+#include <gsl\gsl>
 
 namespace LiteCppDB
 {
@@ -24,11 +25,11 @@ namespace LiteCppDB
 		this->mToken = token;
 	}
 
-	JsonTokenType JsonToken::getTokenType()
+	JsonTokenType JsonToken::getTokenType() noexcept
 	{
 		return this->mTokenType;
 	}
-	void JsonToken::setTokenType(JsonTokenType tokenType)
+	void JsonToken::setTokenType(JsonTokenType tokenType) noexcept
 	{
 		this->mTokenType = tokenType;
 	}
@@ -50,20 +51,20 @@ namespace LiteCppDB
 	}
 
 
-	bool JsonTokenizer::getEOF()
+	bool JsonTokenizer::getEOF() noexcept
 	{
 		return this->mEOF;
 	}
-	void JsonTokenizer::setEOF(bool eOF)
+	void JsonTokenizer::setEOF(bool eOF) noexcept
 	{
 		this->mEOF = eOF;
 	}
 
-	int64_t JsonTokenizer::getPosition()
+	int64_t JsonTokenizer::getPosition() noexcept
 	{
 		return this->mPosition;
 	}
-	void JsonTokenizer::setPosition(int64_t position)
+	void JsonTokenizer::setPosition(int64_t position) noexcept
 	{
 		this->mPosition = position;
 	}
@@ -94,7 +95,7 @@ namespace LiteCppDB
 			this->setEOF(true);
 		}
 
-		(*_current) = static_cast<char>(c);
+		(*_current) = gsl::narrow_cast<char>(c);
 
 		return (*_current);
 	}
@@ -186,7 +187,7 @@ namespace LiteCppDB
 
 		this->Read();
 
-		while (!this->getEOF() && std::isdigit(static_cast<unsigned char>(*_current)) || std::isalpha(*_current) || (*_current) == '_' || (*_current) == '$')
+		while (!this->getEOF() && std::isdigit(gsl::narrow_cast<unsigned char>(*_current)) || std::isalpha(*_current) || (*_current) == '_' || (*_current) == '$')
 		{
 			sb.append(_current);
 			this->Read();
@@ -204,7 +205,7 @@ namespace LiteCppDB
 		this->Read();
 
 		while (!this->getEOF() &&
-			(std::isdigit(static_cast<unsigned char>(*_current)) || (*_current) == '+' || (*_current) == '-' || (*_current) == '.' || (*_current) == 'e' || (*_current) == 'E'))
+			(std::isdigit(gsl::narrow_cast<unsigned char>(*_current)) || (*_current) == '+' || (*_current) == '-' || (*_current) == '.' || (*_current) == 'e' || (*_current) == 'E'))
 		{
 			sb.append(_current);
 			this->Read();
@@ -264,25 +265,25 @@ namespace LiteCppDB
 		return sb;
 	}
 
-	uint32_t JsonTokenizer::ParseUnicode(char c1, char c2, char c3, char c4)
+	uint32_t JsonTokenizer::ParseUnicode(char c1, char c2, char c3, char c4) noexcept
 	{
-		uint32_t p1 = this->ParseSingleChar(c1, 0x1000);
-		uint32_t p2 = this->ParseSingleChar(c2, 0x100);
-		uint32_t p3 = this->ParseSingleChar(c3, 0x10);
-		uint32_t p4 = this->ParseSingleChar(c4, 1);
+		const uint32_t p1 = this->ParseSingleChar(c1, 0x1000);
+		const uint32_t p2 = this->ParseSingleChar(c2, 0x100);
+		const uint32_t p3 = this->ParseSingleChar(c3, 0x10);
+		const uint32_t p4 = this->ParseSingleChar(c4, 1);
 
 		return p1 + p2 + p3 + p4;
 	}
 
-	uint32_t JsonTokenizer::ParseSingleChar(char c1, uint32_t multiplier)
+	uint32_t JsonTokenizer::ParseSingleChar(char c1, uint32_t multiplier) noexcept
 	{
 		uint32_t p1 = 0;
 		if (c1 >= '0' && c1 <= '9')
-			p1 = static_cast<uint32_t>(c1 - '0') * multiplier;
+			p1 = gsl::narrow_cast<uint32_t>(c1 - '0') * multiplier;
 		else if (c1 >= 'A' && c1 <= 'F')
-			p1 = static_cast<uint32_t>((c1 - 'A') + 10) * multiplier;
+			p1 = gsl::narrow_cast<uint32_t>((c1 - 'A') + 10) * multiplier;
 		else if (c1 >= 'a' && c1 <= 'f')
-			p1 = static_cast<uint32_t>((c1 - 'a') + 10) * multiplier;
+			p1 = gsl::narrow_cast<uint32_t>((c1 - 'a') + 10) * multiplier;
 		return p1;
 	}
 }

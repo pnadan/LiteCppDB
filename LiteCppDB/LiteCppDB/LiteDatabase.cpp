@@ -8,22 +8,22 @@ namespace LiteCppDB
 #pragma region Properties
 
 	// Get current instance of BsonMapper used in this database instance (can be BsonMapper.Global)
-	BsonMapper LiteDatabase::getMapper()
+	BsonMapper LiteDatabase::getMapper() noexcept
 	{
-		return this->_mapper;
+		return this->mMapper;
 	}
 
 	// Get current database engine instance. Engine is lower data layer that works with BsonDocuments only (no mapper, no LINQ)
-	LiteEngine LiteDatabase::getEngine()
+	LiteEngine LiteDatabase::getEngine() noexcept
 	{
-		return _engine;
+		return mEngine;
 	}
 
 #pragma endregion
 
 #pragma region Ctor
 
-	LiteDatabase::LiteDatabase()
+	LiteDatabase::LiteDatabase() noexcept
 	{
 	}
 
@@ -31,13 +31,53 @@ namespace LiteCppDB
 	{
 	}
 
+	LiteDatabase::LiteDatabase(const LiteDatabase& src) noexcept
+	{
+		this->mConnectionString = src.mConnectionString;
+		this->mEngine = src.mEngine;
+		this->mMapper = src.mMapper;
+	}
+
+	LiteDatabase& LiteDatabase::operator=(const LiteDatabase& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mConnectionString = rhs.mConnectionString;
+		this->mEngine = rhs.mEngine;
+		this->mMapper = rhs.mMapper;
+		return *this;
+	}
+
+	LiteDatabase::LiteDatabase(const LiteDatabase&& src) noexcept
+	{
+		this->mConnectionString = src.mConnectionString;
+		this->mEngine = src.mEngine;
+		this->mMapper = src.mMapper;
+	}
+
+	LiteDatabase& LiteDatabase::operator=(LiteDatabase&& rhs) noexcept
+	{
+		if (this == &rhs)
+		{
+			return *this;
+		}
+
+		this->mConnectionString = rhs.mConnectionString;
+		this->mEngine = rhs.mEngine;
+		this->mMapper = rhs.mMapper;
+		return *this;
+	}
+
 	/// Starts LiteDB database using a connection string for file system database
-	LiteDatabase::LiteDatabase(std::string connectionString, BsonMapper mapper)
+	LiteDatabase::LiteDatabase(std::string connectionString, BsonMapper mapper) noexcept
 	{
 	}
 
 	// Starts LiteDB database using a connection string for file system database
-	LiteDatabase::LiteDatabase(ConnectionString connectionString, BsonMapper mapper)
+	LiteDatabase::LiteDatabase(ConnectionString connectionString, BsonMapper mapper) noexcept
 	{
 	}
 
@@ -90,14 +130,14 @@ namespace LiteCppDB
 #pragma region Shrink
 
 	// Reduce disk size re-arranging unused spaces.
-	long LiteDatabase::Shrink()
+	long LiteDatabase::Shrink() noexcept
 	{
 		//return this.Shrink(_connectionString == NULL ? NULL : _connectionString.Password);
 		return 0;
 	}
 
 	// Reduce disk size re-arranging unused space. Can change password. If a temporary disk was not provided, use MemoryStream temp disk
-	long LiteDatabase::Shrink(std::string password)
+	long LiteDatabase::Shrink(std::string password) noexcept
 	{
 		return 0;
 	}
